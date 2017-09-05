@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Lautschrift\MuseumBundle;
+namespace Lautschrift\MuseumBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
@@ -13,7 +13,7 @@ class Plugin implements BundlePluginInterface
 	{
 		return [
 				BundleConfig::create(MuseumBundle::class) 
-				->setLoadAfter([ContaoCoreBundle::class])
+				->setLoadAfter([’Contao\CoreBundle\ContaoCoreBundle’, ’Contao\ManagerBundle\ContaoManagerBundle’,])
 				->setReplace(['museum'])
 		]; }
 }
