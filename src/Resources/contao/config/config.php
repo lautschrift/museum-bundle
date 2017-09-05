@@ -3,9 +3,9 @@
 /**
  * Back end modules
  */
-array_insert($GLOBALS['BE_MOD']['museum'], 1, array
+array_insert($GLOBALS['BE_MOD']['content'], 1, array
 (
-	'museum' => array
+	'Museum' => array
 	(
 		'tables'	=> array('tl_museum'),
 		
