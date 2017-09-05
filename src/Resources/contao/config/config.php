@@ -11,3 +11,11 @@ array_insert($GLOBALS['BE_MOD']['content'], 1, array
 		
 	)
 ));
+
+/**
+ * Content elements
+ */
+
+$GLOBALS['TL_CTE']['Museum'] = array(
+		'museum' => 'ContentMuseum'
+);
