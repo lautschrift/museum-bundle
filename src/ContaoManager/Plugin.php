@@ -2,6 +2,7 @@
 declare(strict_types = 1);
 namespace Lautschrift\MuseumBundle\ContaoManager;
 
+use Lautschrift\MuseumBundle\MuseumBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
