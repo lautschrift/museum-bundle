@@ -3,14 +3,11 @@
 /**
  * Back end modules
  */
-$GLOBALS['BE_MOD'] = array
+array_insert($GLOBALS['BE_MOD']['museum'], 1, array
 (
-	'content' => array
+	'museum' => array
 	(
-		'museum' => array
-		(
-			'tables'	=> array('tl_museum')
-		)	
-	)	
+		'tables'	=> array('tl_museum'),
 		
-);
+	)
+));
