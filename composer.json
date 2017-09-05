@@ -3,7 +3,7 @@
   "description": "Erfassen von Museen mit Text, Bild, Öffnungszeiten & Geo-Referenz",
   "keywords": ["museen","con4gis","contao", "c4g"],
   "type": "contao-bundle",
-  "homepage": "https://lautschrift.com",
+  "homepage": "",
   "license": "LGPL-3.0+",
   "authors":[
     {
