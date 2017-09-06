@@ -12,7 +12,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['museum'] = '
 	{invisible_legend:hide},invisible,start,stop
 ';
 
-$GLOBALS['TL_DCA']['tl_content'][museumSet] = array(
+$GLOBALS['TL_DCA']['tl_content']['fields'][museumSet] = array(
 
 		'name' => array(
 				'label' => array('Name', 'Name des Museums'),
