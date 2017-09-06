@@ -66,4 +66,8 @@ $GLOBALS['TL_DCA']['tl_content'][museumSet] = array(
 				'inputType' => 'textarea',
 		)
 	
+<<<<<<< HEAD
 );
+=======
+);
+>>>>>>> dc3f805c2c6f0f59a14c4c40193e3c52b28cdbd3
