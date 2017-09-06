@@ -13,7 +13,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['museum'] = '
 ';
 
 $GLOBALS['TL_DCA']['tl_content'][museumSet] = array(
-'fields' => array(
+
 		'name' => array(
 				'label' => array('Name', 'Name des Museums'),
 				'eval' => array('tl_class' ),
@@ -65,5 +65,5 @@ $GLOBALS['TL_DCA']['tl_content'][museumSet] = array(
 				'eval' => array('rte' => 'tinyMCE'),
 				'inputType' => 'textarea',
 		)
-	)
+	
 );
