@@ -16,22 +16,26 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['museum'] = '
  * Fields
  */
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_name] = array(
-		'label' => array('Name', 'Name des Museums'),
-		'eval' => array('tl_class' ),
+		'label' 	=> array('Name', 'Name des Museums'),
+		'eval' 		=> array('tl_class' ),
 		'inputType' => 'text',	
+		'sql'      	=> "varchar(255) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_street] = array(
-		'label' => array('Straße', 'Straße'),
-        'eval' => array('tl_class' => 'w50'),
+		'label' 	=> array('Straße', 'Straße'),
+        'eval' 		=> array('tl_class' => 'w50'),
         'inputType' => 'text',
+		'sql'       => "varchar(255) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_nr] = array(
-		'label' => array('Hausnumer', 'Hausnummer'),
-        'eval' => array('tl_class' => 'w50'),
+		'label' 	=> array('Hausnumer', 'Hausnummer'),
+        'eval' 		=> array('tl_class' => 'w50'),
         'inputType' => 'text',
+		'sql'       => "varchar(255) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_plz] = array(
-		  'label' => array('Postleitzahl', 'Postleitzahl'),
-          'eval' => array('tl_class' => 'w50'),
-          'inputType' => 'text',
+		'label' 	=> array('Postleitzahl', 'Postleitzahl'),
+        'eval' 		=> array('tl_class' => 'w50'),
+        'inputType'	=> 'text',
+		'sql'       => "varchar(255) NOT NULL default ''"
 );
