@@ -7,8 +7,8 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['museum'] = '
 	{type_legend},type,headline;
 	{museum_legend},museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_geox, museum_geoy;
 	{museumtext_legend},text;
-	{source_legend},singleSRC,size,imagemargin,fullsize,overwriteMeta;
-	{c4g_map_legend},c4g_map_id,c4g_map_default_mapservice,c4g_map_width,c4g_map_height,c4g_map_zoom;
+	{image_legend},addImage;
+	{c4g_map_legend:hide},c4g_map_id,c4g_map_default_mapservice,c4g_map_width,c4g_map_height,c4g_map_zoom;
 	{template_legend:hide},customTpl;
 	{protected_legend:hide},protected;
 	{expert_legend:hide},guests,cssID;
