@@ -70,14 +70,14 @@ $GLOBALS['TL_DCA']['tl_content']['fields'][museum_land] = array(
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_email] = array(
 		'label' 	=> array('E-Mail', 'E-Mail Adresse'),
 		'eval' 		=> array('tl_class' => 'w50 wizard'),
-		'wizard' => array( array('tl_content', 'pagePicker')),
+		'wizard' 	=> array('tl_content', 'pagePicker'),
 		'inputType' => 'text',
 		'sql'       => "varchar(255) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_website] = array(
 		'label' 	=> array('Website', 'Website Adresse'),
 		'eval' 		=> array('tl_class' => 'w50 wizard'),
-		'wizard' => array( array('tl_content', 'pagePicker')),
+		'wizard' 	=> array('tl_content', 'pagePicker'),
 		'inputType' => 'text',
 		'sql'       => "varchar(255) NOT NULL default ''"
 );
