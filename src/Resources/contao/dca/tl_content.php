@@ -5,7 +5,7 @@
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['museum'] = '
 	{type_legend},type,headline;
-	{museum_legend},museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_geox, museum_geoy;
+	{museum_legend},museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_geox, museum_geoy, museum_locstyle;
 	{museumtext_legend},text;
 	{image_legend},addImage;
 	{c4g_map_legend:hide},museum_addMap;
@@ -55,7 +55,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields'][museum_plz] = array(
 		'sql'       => "varchar(255) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_ort] = array(
-		'label' 	=> array('Postleitzahl', 'Postleitzahl'),
+		'label' 	=> array('Ort', 'Ort'),
 		'eval' 		=> array('tl_class' => 'w50'),
 		'inputType' => 'text',
 		'sql'       => "varchar(255) NOT NULL default ''"
@@ -69,16 +69,19 @@ $GLOBALS['TL_DCA']['tl_content']['fields'][museum_land] = array(
 );
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_email] = array(
 		'label' 	=> array('E-Mail', 'E-Mail Adresse'),
-		'eval' 		=> array('tl_class' => 'w50'),
-		'inputType' => 'url',
+		'eval' 		=> array('tl_class' => 'w50 wizard'),
+		'wizard' => array( array('tl_content', 'pagePicker')),
+		'inputType' => 'text',
 		'sql'       => "varchar(255) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_website] = array(
 		'label' 	=> array('Website', 'Website Adresse'),
-		'eval' 		=> array('tl_class' => 'w50'),
-		'inputType' => 'url',
+		'eval' 		=> array('tl_class' => 'w50 wizard'),
+		'wizard' => array( array('tl_content', 'pagePicker')),
+		'inputType' => 'text',
 		'sql'       => "varchar(255) NOT NULL default ''"
 );
+		
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_geox] = array(
 		'label' =>array('Karte geoX', ''),
 		
@@ -97,6 +100,15 @@ $GLOBALS['TL_DCA']['tl_content']['fields'][museum_geoy] = array(
 		'wizard'                  => array(array('GeoPicker', 'getPickerLink')),
 		'sql'                     => "varchar(20) NOT NULL default ''"
 );
+$GLOBALS['TL_DCA']['tl_content']['fields'][museum_locstyle] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_calendar_events']['c4g_locstyle'],
+		'exclude'                 => true,
+		'inputType'               => 'select',
+		'options_callback'        => array('tl_calendar_events_c4g_maps','getLocStyles'),
+		'sql'                     => "int(10) unsigned NOT NULL default '0'"
+);
+
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['c4g_map_id'] = array
 (
