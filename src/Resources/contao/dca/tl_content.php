@@ -7,7 +7,8 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['museum'] = '
 	{type_legend},type,headline;
 	{museum_legend},museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website;
 	{museumtext_legend},text;
-	{source_legend},singleSRC,size,imagemargin,fullsize,overwriteMeta;	
+	{source_legend},singleSRC,size,imagemargin,fullsize,overwriteMeta;
+	{c4g_map_legend},c4g_map_id,c4g_map_default_mapservice,c4g_map_width,c4g_map_height,c4g_map_zoom;
 	{template_legend:hide},customTpl;
 	{protected_legend:hide},protected;
 	{expert_legend:hide},guests,cssID;
@@ -67,3 +68,57 @@ $GLOBALS['TL_DCA']['tl_content']['fields'][museum_website] = array(
 		'sql'       => "varchar(255) NOT NULL default ''"
 );
 
+
+// con4gis
+$GLOBALS['TL_DCA']['tl_content']['fields']['c4g_map_id'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['c4g_map_id'],
+		'exclude'                 => true,
+		'inputType'               => 'select',
+		'options_callback'        => array('tl_content_c4g_maps', 'get_maps'),
+		'eval'                    => array('submitOnChange'=>true),
+		'sql'                     => "int(10) unsigned NOT NULL default '0'"
+);
+$GLOBALS['TL_DCA']['tl_content']['fields']['c4g_map_width'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['c4g_map_width'],
+		'exclude'                 => true,
+		'inputType'               => 'inputUnit',
+		'options'                 => array('px', '%', 'em', 'vh', 'vw', 'vmin', 'vmax', 'pt', 'pc', 'in', 'cm', 'mm'),
+		'eval'                    => array(
+				'rgxp'=>'digit_auto_inherit',
+				'tl_class'=>'w50',
+				'includeBlankOption'=>true
+		),
+		'sql'                     => "varchar(64) NOT NULL default ''"
+);
+$GLOBALS['TL_DCA']['tl_content']['fields']['c4g_map_height'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['c4g_map_height'],
+		'exclude'                 => true,
+		'inputType'               => 'inputUnit',
+		'options'                 => array('px', '%', 'em', 'vh', 'vw', 'vmin', 'vmax', 'pt', 'pc', 'in', 'cm', 'mm'),
+		'eval'                    => array(
+				'rgxp'=>'digit_auto_inherit',
+				'tl_class'=>'w50',
+				'includeBlankOption'=>true
+		),
+		'sql'                     => "varchar(64) NOT NULL default ''"
+);
+$GLOBALS['TL_DCA']['tl_content']['fields']['c4g_map_zoom'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['c4g_map_zoom'],
+		'exclude'                 => true,
+		'inputType'               => 'text',
+		'eval'                    => array('mandatory'=>false, 'rgxp'=>'digit', 'tl_class'=>'clr'),
+		'sql'                     => "int(10) unsigned NOT NULL default '0'"
+);
+$GLOBALS['TL_DCA']['tl_content']['fields']['c4g_map_default_mapservice'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['c4g_map_default_mapservice'],
+		'exclude'                 => true,
+		'inputType'               => 'select',
+		'options_callback'        => array('tl_content_c4g_maps', 'get_baselayers'),
+		'sql'                     => "int(10) unsigned NOT NULL default '0'"
+
+);
