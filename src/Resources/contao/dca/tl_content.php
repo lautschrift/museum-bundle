@@ -7,7 +7,6 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['museum'] = '
 	{type_legend},type,headline;
 	{museum_legend},museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_geox, museum_geoy, museum_locstyle, museum_pic;
 	{museumtext_legend},text;
-	{image_legend},addImage;	
 	{template_legend:hide},customTpl;
 	{protected_legend:hide},protected;
 	{expert_legend:hide},guests,cssID;
@@ -16,7 +15,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['museum'] = '
 
 
 /***
- * Fields
+ * Fields   	{image_legend},addImage;
  */
 
 
@@ -60,14 +59,14 @@ $GLOBALS['TL_DCA']['tl_content']['fields'][museum_land] = array(
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_email] = array(
 		'label' 	=> array('E-Mail', 'E-Mail Adresse'),
 		'eval' 		=> array('tl_class' => 'w50 wizard'),
-		'wizard' 	=> array('tl_content', 'pagePicker'),
+		'wizard' 	=> array(array('tl_content', 'pagePicker')),
 		'inputType' => 'text',
 		'sql'       => "varchar(255) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_website] = array(
 		'label' 	=> array('Website', 'Website Adresse'),
 		'eval' 		=> array('tl_class' => 'w50 wizard'),
-		'wizard' 	=> array('tl_content', 'pagePicker'),
+		'wizard' 	=> array(array('tl_content', 'pagePicker')),
 		'inputType' => 'text',
 		'sql'       => "varchar(255) NOT NULL default ''"
 );
