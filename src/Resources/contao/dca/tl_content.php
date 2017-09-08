@@ -100,12 +100,11 @@ $GLOBALS['TL_DCA']['tl_content']['fields'][museum_locstyle] = array
 );
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_pic] = array
 (
-		'label' 				=> array('Museum Bild', 'bild das im Popup auf der Karte verwendet wird'),
-		'exclude'                 => true,
-		'eval' 		=> array('tl_class' => 'w50 wizard'),
-		'wizard' 	=> array('tl_content', 'pagePicker'),
-		'inputType' => 'text',
-		'sql'       => "varchar(255) NOT NULL default ''"
+		'label' 				=> array('Museum Bild', 'Bild das im Popup auf der Karte verwendet wird'),
+		'exclude'               => true,
+		'eval' 					=> array('tl_class' => 'w50'),
+		'inputType' 			=> 'text',
+		'sql'       			=> "varchar(255) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['c4g_map_id'] = array
