@@ -5,7 +5,7 @@
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['museum'] = '
 	{type_legend},type,headline;
-	{museum_legend},museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_geox, museum_geoy, museum_locstyle;
+	{museum_legend},museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_geox, museum_geoy, museum_locstyle, museum_pic;
 	{museumtext_legend},text;
 	{image_legend},addImage;	
 	{template_legend:hide},customTpl;
@@ -98,7 +98,15 @@ $GLOBALS['TL_DCA']['tl_content']['fields'][museum_locstyle] = array
 		'options_callback'        => array('tl_calendar_events_c4g_maps','getLocStyles'),
 		'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
-
+$GLOBALS['TL_DCA']['tl_content']['fields'][museum_pic] = array
+(
+		'label' 				=> array('Museum Bild', 'bild das im Popup auf der Karte verwendet wird'),
+		'exclude'                 => true,
+		'eval' 		=> array('tl_class' => 'w50 wizard'),
+		'wizard' 	=> array('tl_content', 'pagePicker'),
+		'inputType' => 'text',
+		'sql'       => "varchar(255) NOT NULL default ''"
+);
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['c4g_map_id'] = array
 (
