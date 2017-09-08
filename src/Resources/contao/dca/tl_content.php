@@ -7,28 +7,18 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['museum'] = '
 	{type_legend},type,headline;
 	{museum_legend},museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_geox, museum_geoy, museum_locstyle;
 	{museumtext_legend},text;
-	{image_legend},addImage;
-	{c4g_map_legend:hide},museum_addMap;
+	{image_legend},addImage;	
 	{template_legend:hide},customTpl;
 	{protected_legend:hide},protected;
 	{expert_legend:hide},guests,cssID;
 	{invisible_legend:hide},invisible,start,stop
-';
-$GLOBALS['TL_DCA']['tl_content']['subpalettes']['museum'] = '
-	{museum_addMap},c4g_map_id,c4g_map_default_mapservice,c4g_map_width,c4g_map_height,c4g_map_zoom;
 ';
 
 
 /***
  * Fields
  */
-$GLOBALS['TL_DCA']['tl_content']['fields'][museum_addMap] = array(
-		'label' 	=> array('Karte hinzufügen', 'Karte des Museums'),
-		'exclude'   => true,
-		'inputType' => 'checkbox',
-		'eval'      => array('submitOnChange'=>true),
-		'sql'       => "char(1) NOT NULL default ''"
-);
+
 
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_name] = array(
 		'label' 	=> array('Name', 'Name des Museums'),
