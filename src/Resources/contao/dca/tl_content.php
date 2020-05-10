@@ -3,9 +3,9 @@
  * Table tl_content
  */
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['museum'] = '
+$GLOBALS['TL_DCA']['tl_content']['palettes']['Museum'] = '
 	{type_legend},type,headline;
-	{museum_legend},museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_geox, museum_geoy, museum_locstyle, museum_pic;
+	{museum_legend},title,museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_geox, museum_geoy, museum_locstyle, museum_lang, museum_pic;
 	{museumtext_legend},text, museum_openings;
 	{image_legend},addImage;
 	{template_legend:hide},customTpl;
@@ -50,12 +50,21 @@ $GLOBALS['TL_DCA']['tl_content']['fields'][museum_ort] = array(
 		'inputType' => 'text',
 		'sql'       => "varchar(255) NOT NULL default ''"
 );
+
+$GLOBALS['TL_LANG']['tl_museum_country']['wert1'] = 'Deutschland';
+$GLOBALS['TL_LANG']['tl_museum_country']['wert2'] = 'Österreich';
+$GLOBALS['TL_LANG']['tl_museum_country']['wert3'] = 'Schweiz';
+$GLOBALS['TL_LANG']['tl_museum_country']['wert4'] = 'Italien';
+$GLOBALS['TL_LANG']['tl_museum_country']['wert5'] = 'Slowenien'; 
+$GLOBALS['TL_LANG']['tl_museum_country']['wert6'] = 'Frankreich';  
+
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_land] = array(
 		'label' 	=> array('Land', ''),
-        'eval' 		=> array('tl_class' => 'clr'),
-		'options' 	=> array('Deutschland', 'Österreich', 'Schweiz', 'Italien', 'Slowenien'),
+        'eval' 		=> array('submitOnChange' => true, 'tl_class' => 'clr'),
+		'options' 	=> array('wert1','wert2','wert3','wert4','wert5','wert6'),
+		'reference' => &$GLOBALS['TL_LANG']['tl_museum_country'],
         'inputType' => 'select',
-		'sql'       => "int(10) unsigned NOT NULL default '0'"
+		'sql'       => "varchar(255) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_email] = array(
 		'label' 	=> array('E-Mail', 'E-Mail Adresse'),
@@ -98,6 +107,14 @@ $GLOBALS['TL_DCA']['tl_content']['fields'][museum_locstyle] = array
 		'options_callback'        => array('tl_calendar_events_c4g_maps','getLocStyles'),
 		'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
+
+$GLOBALS['TL_DCA']['tl_content']['fields'][museum_lang] = array(
+		'label' 	=> array('Anzeigesprache', 'Anzeigesprache'),
+		'eval' 		=> array('tl_class' => 'w50'),
+		'inputType' => 'text',
+		'sql'       => "varchar(255) NOT NULL default 'de'"
+);
+
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_openings] = array(
 		'label' 	=> array('Öffnungszeiten', 'Öffnungszeiten'),
 		'eval' => array('rte' => 'tinyMCE'),
