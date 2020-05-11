@@ -1,8 +1,9 @@
 <?php
+
 /**
  * Table tl_content
  */
-
+/*
 $GLOBALS['TL_DCA']['tl_content']['palettes']['Museum'] = '
 	{type_legend},type,headline;
 	{museum_legend},title,museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_geox, museum_geoy, museum_locstyle, museum_lang, museum_pic;
@@ -13,17 +14,29 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['Museum'] = '
 	{expert_legend:hide},guests,cssID;
 	{invisible_legend:hide},invisible,start,stop
 ';
+*/
+
+$GLOBALS['TL_DCA']['tl_content']['palettes']['Museum'] = '
+	{type_legend},type,headline;
+	{museum_legend},title,museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_lang, museum_pic;
+	{museumtext_legend},text, museum_openings;
+	{image_legend},addImage;
+	{template_legend:hide},customTpl;
+	{protected_legend:hide},protected;
+	{expert_legend:hide},guests,cssID;
+	{invisible_legend:hide},invisible,start,stop
+';
 
 
 /***
- * Fields   	
+ * Fields
  */
 
 
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_name] = array(
 		'label' 	=> array('Name', 'Name des Museums'),
 		'eval' 		=> array('tl_class' ),
-		'inputType' => 'text',	
+		'inputType' => 'text',
 		'sql'      	=> "varchar(255) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_street] = array(
@@ -55,8 +68,8 @@ $GLOBALS['TL_LANG']['tl_museum_country']['wert1'] = 'Deutschland';
 $GLOBALS['TL_LANG']['tl_museum_country']['wert2'] = 'Österreich';
 $GLOBALS['TL_LANG']['tl_museum_country']['wert3'] = 'Schweiz';
 $GLOBALS['TL_LANG']['tl_museum_country']['wert4'] = 'Italien';
-$GLOBALS['TL_LANG']['tl_museum_country']['wert5'] = 'Slowenien'; 
-$GLOBALS['TL_LANG']['tl_museum_country']['wert6'] = 'Frankreich';  
+$GLOBALS['TL_LANG']['tl_museum_country']['wert5'] = 'Slowenien';
+$GLOBALS['TL_LANG']['tl_museum_country']['wert6'] = 'Frankreich';
 
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_land] = array(
 		'label' 	=> array('Land', ''),
@@ -80,21 +93,21 @@ $GLOBALS['TL_DCA']['tl_content']['fields'][museum_website] = array(
 		'inputType' => 'text',
 		'sql'       => "varchar(255) NOT NULL default ''"
 );
-		
+
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_geox] = array(
 		'label' 				  =>array('Karte geoX', ''),
 		'inputType'               => 'c4g_text',
 		'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
-		'save_callback'           => array(array('tl_calendar_events_c4g_maps','setLocLon')),
-		'wizard'                  => array(array('GeoPicker', 'getPickerLink')),
+		//'save_callback'           => array(array('tl_calendar_events_c4g_maps','setLocLon')),
+		//'wizard'                  => array(array('GeoPicker', 'getPickerLink')),
 		'sql'                     => "varchar(20) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields'][museum_geoy] = array(
 		'label' 				  =>array('Karte geoY', ''),
 		'inputType'               => 'c4g_text',
 		'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
-		'save_callback'           => array(array('tl_calendar_events_c4g_maps','setLocLat')),
-		'wizard'                  => array(array('GeoPicker', 'getPickerLink')),
+		//'save_callback'           => array(array('tl_calendar_events_c4g_maps','setLocLat')),
+		//'wizard'                  => array(array('GeoPicker', 'getPickerLink')),
 		'sql'                     => "varchar(20) NOT NULL default ''"
 );
 

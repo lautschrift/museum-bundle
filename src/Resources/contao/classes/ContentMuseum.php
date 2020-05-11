@@ -1,9 +1,23 @@
 <?php
-namespace Lautschrift\MuseumBundle\Resources\contao\classes; 
+namespace Lautschrift\MuseumBundle\Resources\contao\classes;
 
 class ContentMuseum extends \ContentElement
 {
 	protected $strTemplate = 'ce_museum';
+
+
+	public function generate()
+	    {
+	        if (TL_MODE == 'BE') {
+	            $template = new \BackendTemplate('be_wildcard');
+	            $template->wildcard = '### '.utf8_strtoupper($GLOBALS['TL_LANG']['CTE']['testelement'][0]).' ###';
+
+	            return $template->parse();
+	        }
+
+	        return parent::generate();
+	    }
+
 
 	protected function compile()
 	{
@@ -13,4 +27,5 @@ class ContentMuseum extends \ContentElement
 		$this->Template->Museum = $rs->fetchAllAssoc();
 		//return;
 	}
+
 }
