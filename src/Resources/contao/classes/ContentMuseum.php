@@ -1,5 +1,5 @@
 <?php
-namespace Lautschrift\MuseumBundle\Resources\contao\classes;
+namespace Lautschrift\MuseumBundle\Resources\contao\classes\;
 
 class ContentMuseum extends \ContentElement
 {
