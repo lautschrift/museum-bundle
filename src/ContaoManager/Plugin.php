@@ -26,6 +26,7 @@ class Plugin implements BundlePluginInterface
         return [
             BundleConfig::create(MuseumBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class]),
+                ->setReplace(['museum'])
         ];
     }
 }
