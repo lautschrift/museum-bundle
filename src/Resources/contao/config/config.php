@@ -38,7 +38,7 @@ array_insert($GLOBALS['TL_CTE']['Museum'] ,1, array(
 */
 
 $GLOBALS['TL_CTE']['Museum'] = array(
-	'museum' => 'Lautschrift\\MuseumBundle\\Resources\\contao\\classes\\ContentVitrine'
+	'museum' => 'Lautschrift\\MuseumBundle\\Resources\\contao\\classes\\ContentMuseum'
 );
 
 //$GLOBALS['TL_CTE']['Museum']['Museum'] = '\\lautschrift\\museum-bundle\\src\\Resources\\contao\\classes\\ContentMuseum';
