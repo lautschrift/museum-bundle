@@ -30,12 +30,16 @@ $GLOBALS['TL_CTE']['Museum'] = array
 	'museum' => 'MuseumBundle\Resources\ContentMuseum',
 
 );
-*/
+
 
 array_insert($GLOBALS['TL_CTE']['Museum'] ,1, array(
-		'Museum' => 'Lautschrift\\MuseumBundle\\Resources\\contao\\classes\\ContentMuseum'
+		'museum' => 'Lautschrift\\MuseumBundle\\Resources\\contao\\classes\\ContentMuseum'
 ));
+*/
 
+$GLOBALS['TL_CTE']['Museum'] = array(
+	'museum' => 'Lautschrift\\MuseumBundle\\Resources\\contao\\classes\\ContentVitrine'
+);
 
 //$GLOBALS['TL_CTE']['Museum']['Museum'] = '\\lautschrift\\museum-bundle\\src\\Resources\\contao\\classes\\ContentMuseum';
 $GLOBALS['TL_LANG']['CTE']['Museum'] = array('Museum oder Fundstelle','Einbinden einer Museum-Karte über OpenLayers.');
