@@ -13,7 +13,7 @@ namespace Lautschrift\MuseumBundle\Tests;
 use Lautschrift\MuseumBundle\MuseumBundle;
 use PHPUnit\Framework\TestCase;
 
-class ContaoSkeletonBundleTest extends TestCase
+class MuseumBundleTest extends TestCase
 {
     public function testCanBeInstantiated()
     {
