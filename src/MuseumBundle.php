@@ -1,9 +1,17 @@
 <?php
 
-namespace Lautschrift\MuseumBundle; 
+/*
+ * This file is part of [package name].
+ *
+ * (c) John Doe
+ *
+ * @license LGPL-3.0-or-later
+ */
+
+namespace Lautschrift\MuseumBundle;
+
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-/**
- * This is the bundle class. */
 class MuseumBundle extends Bundle
-{ }
+{
+}
