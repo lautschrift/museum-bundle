@@ -95,7 +95,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_website'] = array(
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geox'] = array(
-		'label' 				  =>array('Karte geoX', ''),
+		'label' 				  => array('Karte geoX', ''),
 		'inputType'               => 'c4g_text',
 		'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
 		'save_callback'           => array(array('tl_calendar_events_c4g_maps','setLocLon')),
@@ -103,7 +103,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geox'] = array(
 		'sql'                     => "varchar(20) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geoy'] = array(
-		'label' 				  =>array('Karte geoY', ''),
+		'label' 				  => array('Karte geoY', ''),
 		'inputType'               => 'c4g_text',
 		'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
 		'save_callback'           => array(array('tl_calendar_events_c4g_maps','setLocLat')),
@@ -116,7 +116,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_locstyle'] = array
 		'label'                   => &$GLOBALS['TL_LANG']['tl_calendar_events']['c4g_locstyle'],
 		'exclude'                 => true,
 		'inputType'               => 'select',
-		'eval' 					=> array('tl_class' => 'clr'),
+		'eval' 					  => array('tl_class' => 'clr'),
 		'options_callback'        => array('tl_calendar_events_c4g_maps','getLocStyles'),
 		'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
