@@ -42,4 +42,4 @@ $GLOBALS['TL_CTE']['Museum'] = array(
 );
 
 //$GLOBALS['TL_CTE']['Museum']['Museum'] = '\\lautschrift\\museum-bundle\\src\\Resources\\contao\\classes\\ContentMuseum';
-$GLOBALS['TL_LANG']['CTE']['Museum'] = array('Museum oder Fundstelle','Einbinden einer Museum-Karte über OpenLayers.');
+$GLOBALS['TL_LANG']['CTE']['Museum'] = array('Museum','Einbinden einer Museum-Karte über OpenLayers.');
