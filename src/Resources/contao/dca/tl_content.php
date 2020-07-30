@@ -1,5 +1,6 @@
 <?php
 
+use \con4gis\MapsBundle\Classes\GeoPicker;
 /**
  * Table tl_content
  */
