@@ -100,7 +100,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geox'] = array(
 		'inputType'               => 'c4g_text',
 		'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
         //'save_callback'           => [['tl_content_c4g_maps', 'setLocLon']],
-        'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
+        //'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
 		'sql'                     => "varchar(20) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geoy'] = array(
@@ -108,10 +108,10 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geoy'] = array(
 		'inputType'               => 'c4g_text',
 		'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
         //'save_callback'           => [['tl_content_c4g_maps', 'setLocLat']],
-        'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
+        //'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
 		'sql'                     => "varchar(20) NOT NULL default ''"
 );
-
+/*
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_locstyle'] = array
 (
 		'label'                   => &$GLOBALS['TL_LANG']['tl_calendar_events']['c4g_locstyle'],
@@ -121,7 +121,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_locstyle'] = array
 		'options_callback'        => array('tl_calendar_events_c4g_maps','getLocStyles'),
 		'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
-
+*/
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_lang'] = array(
 		'label' 	=> array('Anzeigesprache', 'Anzeigesprache'),
 		'eval' 		=> array('tl_class' => 'w50'),
