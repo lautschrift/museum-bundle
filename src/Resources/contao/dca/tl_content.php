@@ -94,7 +94,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_website'] = array(
 		'inputType' => 'text',
 		'sql'       => "varchar(255) NOT NULL default ''"
 );
-
+/*
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geox'] = array(
 		'label' 				  => array('Karte geoX', ''),
 		'inputType'               => 'c4g_text',
@@ -102,10 +102,10 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geox'] = array(
         //'save_callback'           => [['tl_content_c4g_maps', 'setLocLon']],
         //'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
 		'sql'                     => "varchar(20) NOT NULL default ''"
-);
+);*/
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geoy'] = array(
 		'label' 				  => array('Karte geoY', ''),
-		'inputType'               => 'c4g_text',
+		'inputType'               => 'text',
 		'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
         //'save_callback'           => [['tl_content_c4g_maps', 'setLocLat']],
         //'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
