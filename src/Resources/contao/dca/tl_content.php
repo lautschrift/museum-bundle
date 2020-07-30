@@ -98,16 +98,16 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geox'] = array(
 		'label' 				  => array('Karte geoX', ''),
 		'inputType'               => 'c4g_text',
 		'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
-		'save_callback'           => array(array('tl_calendar_events_c4g_maps','setLocLon')),
-		'wizard'                  => array(array('GeoPicker', 'getPickerLink')),
+        'save_callback'           => [['tl_content_c4g_maps', 'setLocLon']],
+        'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
 		'sql'                     => "varchar(20) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geoy'] = array(
 		'label' 				  => array('Karte geoY', ''),
 		'inputType'               => 'c4g_text',
 		'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
-		'save_callback'           => array(array('tl_calendar_events_c4g_maps','setLocLat')),
-		'wizard'                  => array(array('GeoPicker', 'getPickerLink')),
+        'save_callback'           => [['tl_content_c4g_maps', 'setLocLat']],
+        'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
 		'sql'                     => "varchar(20) NOT NULL default ''"
 );
 
