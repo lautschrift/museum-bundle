@@ -107,7 +107,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geoy'] = array(
 		'label' 				  => array('Karte geoY', ''),
 		'inputType'               => 'text',
 		//'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
-        		'eval'                    => array('tl_class'=>'w50 wizard' ),
+        		'eval'                    => array('tl_class'),
         //'save_callback'           => [['tl_content_c4g_maps', 'setLocLat']],
         //'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
 		'sql'                     => "varchar(20) NOT NULL default ''"
