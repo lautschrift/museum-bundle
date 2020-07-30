@@ -19,7 +19,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['Museum'] = '
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['Museum'] = '
 	{type_legend},type,headline;
-	{museum_legend},title,museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_lang, museum_pic;
+	{museum_legend},title,museum_name, museum_street, museum_nr, museum_plz, museum_ort, museum_land, museum_email, museum_website, museum_lang, museum_pic, museum_geox, museum_geoy;
 	{museumtext_legend},text, museum_openings;
 	{image_legend},addImage;
 	{template_legend:hide},customTpl;
@@ -94,25 +94,26 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_website'] = array(
 		'inputType' => 'text',
 		'sql'       => "varchar(255) NOT NULL default ''"
 );
-/*
+
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geox'] = array(
 		'label' 				  => array('Karte geoX', ''),
 		'inputType'               => 'c4g_text',
 		'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
-        //'save_callback'           => [['tl_content_c4g_maps', 'setLocLon']],
-        //'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
+        'save_callback'           => [['tl_content_c4g_maps', 'setLocLon']],
+        'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
 		'sql'                     => "varchar(20) NOT NULL default ''"
-);*/
+);
+
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geoy'] = array(
 		'label' 				  => array('Karte geoY', ''),
         'eval'                    => array('tl_class'),
-        'inputType'               => 'text',
-		//'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
-
-        //'save_callback'           => [['tl_content_c4g_maps', 'setLocLat']],
-        //'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
+        'inputType'               => 'c4g_text',
+        'save_callback'           => [['tl_content_c4g_maps', 'setLocLat']],
+        'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
 		'sql'                     => "varchar(20) NOT NULL default ''"
 );
+
+
 /*
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_locstyle'] = array
 (
