@@ -114,7 +114,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geoy'] = array(
 );
 
 
-/*
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_locstyle'] = array
 (
 		'label'                   => &$GLOBALS['TL_LANG']['tl_calendar_events']['c4g_locstyle'],
@@ -124,7 +123,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_locstyle'] = array
 		'options_callback'        => array('tl_calendar_events_c4g_maps','getLocStyles'),
 		'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
-*/
+
 $GLOBALS['TL_DCA']['tl_content']['fields']['museum_lang'] = array(
 		'label' 	=> array('Anzeigesprache', 'Anzeigesprache'),
 		'eval' 		=> array('tl_class' => 'w50'),
