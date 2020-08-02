@@ -1,7 +1,7 @@
 <?php
 
 use con4gis\MapsBundle\Classes\GeoPicker;
-use con4gis\MapsBundle\Classes\GeoEditor;
+
 /**
  * Table tl_content
  */
@@ -110,7 +110,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['museum_geoy'] = array(
         'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
         'inputType'               => 'c4g_text',
         'save_callback'           => [['tl_content_c4g_maps', 'setLocLat']],
-        'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoEditor', 'getEditorLink']],
+        'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
 		'sql'                     => "varchar(20) NOT NULL default ''"
 );
 
