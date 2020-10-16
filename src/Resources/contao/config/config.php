@@ -37,6 +37,17 @@ array_insert($GLOBALS['TL_CTE']['Museum'] ,1, array(
 ));
 */
 
+
+array_insert($GLOBALS['BE_MOD'], array_search('content', array_keys($GLOBALS['BE_MOD'])) + 1, array('Site' => array()));
+
+array_insert($GLOBALS['BE_MOD']['Museum'],2, array
+(
+        'palafittes_museum' => array
+        (
+            'tables' => array ('tl_content'),
+        ),
+));
+
 $GLOBALS['TL_CTE']['Museum'] = array(
 	'Museum' => 'Lautschrift\\MuseumBundle\\Resources\\contao\\classes\\ContentMuseum'
 );
