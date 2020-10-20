@@ -1,4 +1,6 @@
 <?php
+use \con4gis\MapsBundle\Classes\GeoPicker;
+use con4gis\MapsBundle\Classes\Utils;
 /**
  * Table tl_museum
  */
@@ -68,7 +70,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
             'label' => &$GLOBALS['TL_LANG']['tl_site']['geoX'],
             'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
             'inputType'               => 'c4g_text',
-            'save_callback'           => [['tl_site_c4g_maps_site', 'setLocLon']],
+            'save_callback'           => [['tl_museum', 'setLocLon']],
             'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
             'sql' => ['type' => 'string', 'length' => 20, 'default' => '']
         ],
@@ -76,7 +78,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
             'label' => &$GLOBALS['TL_LANG']['tl_site']['geoY'],
             'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
             'inputType'               => 'c4g_text',
-            'save_callback'           => [['tl_site_c4g_maps_site', 'setLocLat']],
+            'save_callback'           => [['tl_museum', 'setLocLat']],
             'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
             'sql' => ['type' => 'string', 'length' => 20, 'default' => '']
         ],
@@ -110,5 +112,33 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 */
 class tl_museum extends Backend
 {
+	/**
+	      * Validate Longitude
+	      */
+	     public function setLocLon($varValue, \DataContainer $dc)
+	     {
+	         if ($varValue != 0)
+	         {
+	             if (!Utils::validateLon($varValue))
+	             {
+	                 throw new \Exception($GLOBALS['TL_LANG']['c4g_maps']['geox_invalid']);
+	             }
+	         }
+	         return $varValue;
+	     }
 
+	     /**
+	      * Validate Latitude
+	      */
+	     public function setLocLat($varValue, \DataContainer $dc)
+	     {
+	         if ($varValue != 0)
+	         {
+	             if (!Utils::validateLat($varValue))
+	             {
+	                 throw new \Exception($GLOBALS['TL_LANG']['c4g_maps']['geoy_invalid']);
+	             }
+	         }
+	         return $varValue;
+	     }
 }
