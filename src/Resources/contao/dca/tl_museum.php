@@ -84,7 +84,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 
 			// Palettes
      'palettes' => [
-         'default' => '{site_legend},name;'
+         'default' => '{site_legend},name;{place_legend},city,country, geoX, geoY;'
     ]
 ];
 
