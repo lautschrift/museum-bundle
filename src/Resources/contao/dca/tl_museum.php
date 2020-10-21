@@ -64,7 +64,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
         ],
 				'geoX' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_site']['geoX'],
+            'label' => &$GLOBALS['TL_LANG']['tl_site']['fields']['geoX'],
             'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
             'inputType'               => 'c4g_text',
             'save_callback'           => [['tl_museum', 'setLocLon']],
@@ -72,7 +72,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
             'sql' => ['type' => 'string', 'length' => 20, 'default' => '']
         ],
         'geoY' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_site']['geoY'],
+            'label' => &$GLOBALS['TL_LANG']['tl_site']['fields']['geoY'],
             'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
             'inputType'               => 'c4g_text',
             'save_callback'           => [['tl_museum', 'setLocLat']],
