@@ -49,7 +49,8 @@ array_insert($GLOBALS['BE_MOD']['Site'],2, array
 ));
 
 $GLOBALS['TL_CTE']['Museum'] = array(
-	'Museum' => 'Lautschrift\\MuseumBundle\\Resources\\contao\\classes\\ContentMuseum'
+	'Museum' => 'Lautschrift\\MuseumBundle\\Resources\\contao\\classes\\ContentMuseum',
+	'Museum 2' => 'Lautschrift\\MuseumBundle\\Resources\\contao\\classes\\ContentMuseumElement'
 );
 
 //$GLOBALS['TL_CTE']['Museum']['Museum'] = '\\lautschrift\\museum-bundle\\src\\Resources\\contao\\classes\\ContentMuseum';

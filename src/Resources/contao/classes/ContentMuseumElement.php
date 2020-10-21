@@ -1,7 +1,7 @@
 <?php
 namespace Lautschrift\MuseumBundle\Resources\contao\classes;
 
-class ContentMuseum extends \ContentElement
+class ContentMuseumElement extends \ContentElement
 {
 	protected $strTemplate = 'ce_museum';
 
@@ -22,7 +22,7 @@ class ContentMuseum extends \ContentElement
 	protected function compile()
 	{
 		$rs = \Database::getInstance()
-		->query('SELECT * FROM tl_content');
+		->query('SELECT * FROM tl_museum');
 
 		$this->Template->museum = $rs->fetchAllAssoc();
 
