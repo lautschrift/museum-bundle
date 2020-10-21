@@ -25,6 +25,10 @@ class ContentMuseum extends \ContentElement
 		->query('SELECT * FROM tl_content');
 
 		$this->Template->museum = $rs->fetchAllAssoc();
+
+		$rs2 = \Database::getInstance()
+		->query('SELECT * FROM tl_museum');
+		$this->Template->museum_1 = $rs2->fetchAllAssoc();
 		//return;
 	}
 
