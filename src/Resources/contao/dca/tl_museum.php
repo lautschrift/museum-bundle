@@ -12,6 +12,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 	//'ptable'                      => 'tl_content',
 	'ctable'                      => ['tl_content'],
 	'enableVersioning'            => true,
+	'markAsCopy'									=> 'name',
 	'sql' => array
 		(
 		'keys' => array
@@ -37,7 +38,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
                 'href' => 'table=tl_museum',
                 'icon' => 'edit.svg',
             ],
-            
+
             'delete' => [
                 'href' => 'act=delete',
                 'icon' => 'delete.svg',
