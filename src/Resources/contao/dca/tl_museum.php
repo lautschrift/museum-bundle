@@ -63,6 +63,13 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
             'eval' => ['tl_class' => 'w50', 'maxlength' => 255, 'mandatory' => true],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
         ],
+				'info' => [
+						'label' => &$GLOBALS['TL_LANG']['tl_museum']['info'],
+						'search' => true,
+						'eval' => array('rte' => 'tinyMCE'),
+						'inputType' => 'textarea',
+						'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
+				],
 				'street' => [
 					'label' => &$GLOBALS['TL_LANG']['tl_museum']['street'],
 					'eval' 		=> array('tl_class' => 'w50'),
@@ -111,11 +118,32 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
             'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
             'sql' => ['type' => 'string', 'length' => 20, 'default' => '']
         ],
+				'email' => [
+					'label' => &$GLOBALS['TL_LANG']['tl_museum']['email'],
+					'eval' 		=> array('tl_class' => 'w50'),
+					'inputType' => 'text',
+					'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
+				],
+				'website' => [
+					'label' => &$GLOBALS['TL_LANG']['tl_museum']['website'],
+					'eval' 		=> array('tl_class' => 'w50'),
+					'wizard' 	=> array(array('tl_content', 'pagePicker')),
+					'inputType' => 'text',
+					'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
+				],
+				'openings' => [
+						'label' => &$GLOBALS['TL_LANG']['tl_museum']['openings'],
+						'search' => true,
+						'eval' => array('rte' => 'tinyMCE'),
+						'inputType' => 'textarea',
+						'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
+				],
+		
 			],
 
 			// Palettes
      'palettes' => [
-         'default' => '{site_legend},name;{place_legend},street, street_nr, zip_code, place, country, museum_geox, museum_geoy;'
+         'default' => '{site_legend},name,info;{place_legend},street, street_nr, zip_code, place, country, museum_geox, museum_geoy;{contact_legend},email,website;{openings_legend},openings'
     ]
 ];
 
