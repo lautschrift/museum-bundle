@@ -63,6 +63,38 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
             'eval' => ['tl_class' => 'w50', 'maxlength' => 255, 'mandatory' => true],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
         ],
+				'street' => [
+					'label' => &$GLOBALS['TL_LANG']['tl_museum']['street'],
+					'eval' 		=> array('tl_class' => 'w50'),
+	        'inputType' => 'text',
+					'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
+				],
+				'street_nr' => [
+					'label' => &$GLOBALS['TL_LANG']['tl_museum']['street_nr'],
+					'eval' 		=> array('tl_class' => 'w50'),
+	        'inputType' => 'text',
+					'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
+				],
+				'zip_code' => [
+					'label' => &$GLOBALS['TL_LANG']['tl_museum']['zip_code'],
+					'eval' 		=> array('tl_class' => 'w50'),
+					'inputType' => 'text',
+					'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
+				],
+				'place' => [
+					'label' => &$GLOBALS['TL_LANG']['tl_museum']['place'],
+					'eval' 		=> array('tl_class' => 'w50'),
+					'inputType' => 'text',
+					'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
+				],
+				'country' => [
+					'label' => &$GLOBALS['TL_LANG']['tl_museum']['country'],
+					'eval' 		=> array('submitOnChange' => true, 'tl_class' => 'clr'),
+					'options' 	=> array('wert1','wert2','wert3','wert4','wert5','wert6'),
+					'reference' => &$GLOBALS['TL_LANG']['tl_museum'],
+			    'inputType' => 'select',
+					'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
+				],
 				'museum_geox' => [
             'label' => &$GLOBALS['TL_LANG']['tl_museum']['museum_geox'],
             'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
@@ -83,7 +115,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 
 			// Palettes
      'palettes' => [
-         'default' => '{site_legend},name;{place_legend},city,country, museum_geox, museum_geoy;'
+         'default' => '{site_legend},name;{place_legend},street, street_nr, zip_code, place, country, museum_geox, museum_geoy;'
     ]
 ];
 
