@@ -44,7 +44,7 @@ array_insert($GLOBALS['BE_MOD']['Site'],2, array
 (
         'palafittes_museum' => array
         (
-            'tables' => array ('tl_museum'),
+            'tables' => array ('tl_museum', 'tl_content'),
         ),
 ));
 
@@ -55,4 +55,4 @@ $GLOBALS['TL_CTE']['Museum'] = array(
 
 //$GLOBALS['TL_CTE']['Museum']['Museum'] = '\\lautschrift\\museum-bundle\\src\\Resources\\contao\\classes\\ContentMuseum';
 $GLOBALS['TL_LANG']['CTE']['Museum'] = array('Museum','Einbinden einer Museum-Karte über OpenLayers.');
-$GLOBALS['TL_LANG']['CTE']['Museum2'] = array('Museum','Einbinden eines Museum aus dem Palafittes Bereich');
+$GLOBALS['TL_LANG']['CTE']['Museum2'] = array('Museum (Element)','Einbinden eines Museum aus dem Palafittes Bereich');
