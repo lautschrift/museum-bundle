@@ -35,7 +35,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
         ],
         'operations' => [
             'edit' => [
-                'href' => 'table=tl_museum',
+                'href' => 'act=edit',
                 'icon' => 'edit.svg',
             ],
 
