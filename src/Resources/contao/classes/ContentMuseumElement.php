@@ -10,7 +10,7 @@ class ContentMuseumElement extends \ContentElement
 	    {
 	        if (TL_MODE == 'BE') {
 	            $template = new \BackendTemplate('be_wildcard');
-	            $template->wildcard = '### ~ MUSEUM ~'.utf8_strtoupper($GLOBALS['TL_LANG']['CTE']['testelement'][0]).' ###';
+	            $template->wildcard = '### ~ MUSEUM ~'.utf8_strtoupper($GLOBALS['TL_LANG']['CTE']['museum'][0]).' ###';
 
 	            return $template->parse();
 	        }
@@ -24,7 +24,7 @@ class ContentMuseumElement extends \ContentElement
 		$rs = \Database::getInstance()
 		->query('SELECT * FROM tl_museum');
 
-		$this->Template->museum = $rs->fetchAllAssoc();
+		$this->Template->museumelement = $rs->fetchAllAssoc();
 
 		//return;
 	}
