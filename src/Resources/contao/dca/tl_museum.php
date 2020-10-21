@@ -117,38 +117,34 @@ class tl_museum extends Backend
       parent::__construct();
       $this->User->authenticate();
   	}
-	/**
-	     * Return all Location Styles as array
-	     * @param object
-	     * @return array
-	     */
-	/**
-	* Validate Longitude
-	*/
-	public function setLocLon($varValue, \DataContainer $dc)
-	{
-		if ($varValue != 0)
-		{
-			if (!Utils::validateLon($varValue))
-			{
-			throw new \Exception($GLOBALS['TL_LANG']['c4g_maps']['geox_invalid']);
-			}
-		}
-		return $varValue;
-	}
 
-	/**
-	* Validate Latitude
-	*/
-	public function setLocLat($varValue, \DataContainer $dc)
-	{
-		if ($varValue != 0)
-		{
-			if (!Utils::validateLat($varValue))
-			{
-			throw new \Exception($GLOBALS['TL_LANG']['c4g_maps']['geoy_invalid']);
-			}
-		}
-		return $varValue;
-	}
+		/**
+				* Validate Longitude
+				*/
+			 public function setLocLon($varValue, \DataContainer $dc)
+			 {
+					 if ($varValue != 0)
+					 {
+							 if (!\con4gis\MapsBundle\Classes\Utils::validateLon($varValue))
+							 {
+									 throw new \Exception($GLOBALS['TL_LANG']['c4g_maps']['geox_invalid']);
+							 }
+					 }
+					 return $varValue;
+			 }
+
+			 /**
+				* Validate Latitude
+				*/
+			 public function setLocLat($varValue, \DataContainer $dc)
+			 {
+					 if ($varValue != 0)
+					 {
+							 if (!\con4gis\MapsBundle\Classes\Utils::validateLat($varValue))
+							 {
+									 throw new \Exception($GLOBALS['TL_LANG']['c4g_maps']['geoy_invalid']);
+							 }
+					 }
+					 return $varValue;
+			 }
 }
