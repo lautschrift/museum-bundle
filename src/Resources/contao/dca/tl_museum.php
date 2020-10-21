@@ -60,7 +60,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
             'label' => &$GLOBALS['TL_LANG']['tl_museum']['name'],
             'search' => true,
             'inputType' => 'text',
-            'eval' => ['tl_class' => 'w50', 'maxlength' => 255, 'mandatory' => true],
+            'eval' => ['tl_class' => 'w100', 'maxlength' => 255, 'mandatory' => true],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
         ],
 				'info' => [
