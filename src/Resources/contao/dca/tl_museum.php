@@ -63,16 +63,16 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
             'eval' => ['tl_class' => 'w50', 'maxlength' => 255, 'mandatory' => true],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
         ],
-				'geoX' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_site']['fields']['geoX'],
+				'geox' => [
+            'label' => &$GLOBALS['TL_LANG']['tl_museum']['fields']['geox'],
             'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
             'inputType'               => 'c4g_text',
             'save_callback'           => [['tl_museum', 'setLocLon']],
             'wizard'                  => [['\con4gis\MapsBundle\Classes\GeoPicker', 'getPickerLink']],
             'sql' => ['type' => 'string', 'length' => 20, 'default' => '']
         ],
-        'geoY' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_site']['fields']['geoY'],
+        'geoy' => [
+            'label' => &$GLOBALS['TL_LANG']['tl_museum']['fields']['geoy'],
             'eval'                    => array('mandatory'=>false, 'maxlength'=>20, 'tl_class'=>'w50 wizard' ),
             'inputType'               => 'c4g_text',
             'save_callback'           => [['tl_museum', 'setLocLat']],
