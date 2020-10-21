@@ -110,14 +110,18 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 */
 class tl_museum extends Backend
 {
-	
+
 	public function __construct()
   	{
       $this->import('Contao\BackendUser', 'User');
       parent::__construct();
       $this->User->authenticate();
   	}
-
+	/**
+	     * Return all Location Styles as array
+	     * @param object
+	     * @return array
+	     */
 	/**
 	* Validate Longitude
 	*/
