@@ -127,8 +127,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 				'website' => [
 					'label' => &$GLOBALS['TL_LANG']['tl_museum']['website'],
 					'eval' 		=> array('tl_class' => 'w50'),
-					'wizard' 	=> array(array('tl_content', 'pagePicker')),
-					'inputType' => 'text',
+					'inputType' => 'picker',
 					'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
 				],
 				'openings' => [
