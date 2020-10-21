@@ -37,10 +37,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
                 'href' => 'table=tl_museum',
                 'icon' => 'edit.svg',
             ],
-            'editheader' => [
-                'href' => 'act=edit',
-                'icon' => 'header.svg',
-            ],
+            
             'delete' => [
                 'href' => 'act=delete',
                 'icon' => 'delete.svg',
@@ -113,32 +110,32 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 class tl_museum extends Backend
 {
 	/**
-	      * Validate Longitude
-	      */
-	     public function setLocLon($varValue, \DataContainer $dc)
-	     {
-	         if ($varValue != 0)
-	         {
-	             if (!Utils::validateLon($varValue))
-	             {
-	                 throw new \Exception($GLOBALS['TL_LANG']['c4g_maps']['geox_invalid']);
-	             }
-	         }
-	         return $varValue;
-	     }
+	* Validate Longitude
+	*/
+	public function setLocLon($varValue, \DataContainer $dc)
+	{
+		if ($varValue != 0)
+		{
+			if (!Utils::validateLon($varValue))
+			{
+			throw new \Exception($GLOBALS['TL_LANG']['c4g_maps']['geox_invalid']);
+			}
+		}
+		return $varValue;
+	}
 
-	     /**
-	      * Validate Latitude
-	      */
-	     public function setLocLat($varValue, \DataContainer $dc)
-	     {
-	         if ($varValue != 0)
-	         {
-	             if (!Utils::validateLat($varValue))
-	             {
-	                 throw new \Exception($GLOBALS['TL_LANG']['c4g_maps']['geoy_invalid']);
-	             }
-	         }
-	         return $varValue;
-	     }
+	/**
+	* Validate Latitude
+	*/
+	public function setLocLat($varValue, \DataContainer $dc)
+	{
+		if ($varValue != 0)
+		{
+			if (!Utils::validateLat($varValue))
+			{
+			throw new \Exception($GLOBALS['TL_LANG']['c4g_maps']['geoy_invalid']);
+			}
+		}
+		return $varValue;
+	}
 }
