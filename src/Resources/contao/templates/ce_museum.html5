@@ -1,14 +1,54 @@
 <?php $this->extend('block_searchable'); ?>
-
 <?php $this->block('content'); ?>
+<!-- museum --!>
+<?php if ($this->museum_pic != ""): ?>
+	<p>
+	<img max-width="100%" max-height="auto" src="<?= $this->museum_pic ?>">
+	</p>
+	<?php endif; ?>
 
-<?= $this->museum_name ?>	
-	
+<?php
+
+if($this->museum_land == "wert1") {
+	$land = "Deutschland";
+} elseif ($this->museum_land == "wert2") {
+	$land = "Österreich";
+} elseif ($this->museum_land == "wert3") {
+	$land = "Schweiz";
+} elseif ($this->museum_land == "wert4") {
+	$land = "Italien";
+} elseif ($this->museum_land == "wert5") {
+	$land = "Slowenien";
+} elseif ($this->museum_land == "wert6") {
+	$land = "Frankreich";
+}
+
+?>
+<p><?= $this->museum_street ?> <?= $this->museum_nr ?>, <?= $this->museum_plz ?> <?= $this->museum_ort ?><br><?= $land ?></p>
+<p><br></p>
+<?php if ($this->museum_openings != ""): ?>
+	<p><strong>{{iflng::fr}}horaires{{iflng::en}}Openings{{iflng::de}}Öffnungszeiten{{iflng}}:</strong><br><?= $this->museum_openings ?></p>
+<?php endif; ?>
+<p><br></p>
+<p>
+	<!-- {{iflng::fr}}FR{{iflng::en}}EN{{iflng::de}}DE{{iflng}} -->
+<?php if ($this->museum_website != ""): ?>
+	<a title="{{iflng::fr}}au site web{{iflng::en}}to the website{{iflng::de}}zur Website{{iflng}}" href="<?= $this->museum_website ?>" target="blank"><span class="fa fa-external-link"></span> {{iflng::fr}}au site web{{iflng::en}}to the website{{iflng::de}}zur Website{{iflng}}</a>
+<?php endif; ?>
+<?php if ($this->museum_email != ""): ?>
+	<br><a title="E-Mail" href="mailto:<?= $this->museum_email ?>" target="blank"><span class="fa fa-envelope"></span> <?= $this->museum_email ?></a>
+<?php endif; ?>
+</p><p>
+	<br></p>
+
   <?php if (!$this->addBefore): ?>
     <?= $this->text ?>
   <?php endif; ?>
 
+
   <?php if ($this->addImage): ?>
+
+
     <?php $this->insert('image', $this->arrData); ?>
   <?php endif; ?>
 
