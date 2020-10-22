@@ -228,6 +228,8 @@ class tl_museum extends Backend
 				$alias = array();
 				$museumElements = $this->Database->prepare('SELECT * FROM `tl_museum` ')->execute();
 				$alias = $museumElements;
+
+				return $alias;
 			}
 		/**
 				* Validate Longitude
