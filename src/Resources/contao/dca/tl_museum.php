@@ -56,6 +56,17 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
         'tstamp' => [
             'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0]
         ],
+				'cte_alias' => [
+						'exclude'                 => true,
+						'inputType'               => 'picker',
+						'eval'                    => array('mandatory'=>true, 'tl_class'=>'clr'),
+						'save_callback' => array
+						(
+							array('tl_museum', 'saveAlias'),
+						),
+						'sql'                     => "int(10) unsigned NOT NULL default 0",
+						'relation'                => array('type'=>'hasOne', 'load'=>'lazy', 'table'=>'tl_museum')
+				],
 				'name' => [
             'label' => &$GLOBALS['TL_LANG']['tl_museum']['name'],
             'search' => true,
@@ -187,6 +198,24 @@ class tl_museum extends Backend
       parent::__construct();
       $this->User->authenticate();
   	}
+		
+		/**
+			 * Throw an exception if the current content element is selected (circular reference)
+			 *
+			 * @param mixed         $varValue
+			 * @param DataContainer $dc
+			 *
+			 * @return mixed
+			 */
+			public function saveAlias($varValue, DataContainer $dc)
+			{
+				if ($dc->activeRecord && $dc->activeRecord->id == $varValue)
+				{
+					throw new \RuntimeException($GLOBALS['TL_LANG']['ERR']['circularPicker']);
+				}
+
+				return $varValue;
+			}
 
 		/**
 				* Validate Longitude
