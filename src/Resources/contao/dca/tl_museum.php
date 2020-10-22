@@ -64,6 +64,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 						(
 							array('tl_museum', 'saveAlias'),
 						),
+						'options_callback' => array('tl_museum', 'getAlias');
 						'sql'                     => "int(10) unsigned NOT NULL default 0",
 						'relation'                => array('type'=>'hasOne', 'load'=>'lazy', 'table'=>'tl_museum')
 				],
@@ -198,7 +199,7 @@ class tl_museum extends Backend
       parent::__construct();
       $this->User->authenticate();
   	}
-		
+
 		/**
 			 * Throw an exception if the current content element is selected (circular reference)
 			 *
@@ -217,6 +218,17 @@ class tl_museum extends Backend
 				return $varValue;
 			}
 
+			/**
+			* Get all content elements and return them as array (content element alias)
+			*
+			* @return array
+			*/
+			public function getAlias()
+			{
+				$alias = array();
+				$museumElements = $this->Database->prepare('SELECT * FROM `tl_museum` ')->execute();
+				$alias = $museumElements;
+			}
 		/**
 				* Validate Longitude
 				*/
