@@ -78,13 +78,6 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
             'eval' => ['tl_class' => 'w100', 'maxlength' => 255, 'mandatory' => true],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
         ],
-				'info' => [
-						'label' => &$GLOBALS['TL_LANG']['tl_museum']['info'],
-						'search' => true,
-						'eval' => array('rte' => 'tinyMCE'),
-						'inputType' => 'textarea',
-						'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
-				],
 				'street' => [
 					'label' => &$GLOBALS['TL_LANG']['tl_museum']['street'],
 					'eval' 		=> array('tl_class' => 'w50'),
@@ -119,7 +112,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 				],
 				'region' => [
 					'label' => &$GLOBALS['TL_LANG']['tl_museum']['region'],
-					'eval' 		=> array('tl_class' => 'w50'),
+					'eval' 		=> ['tl_class' => 'w50', 'mandatory' => true],
 	        'inputType' => 'text',
 					'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
 				],
@@ -174,7 +167,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 
 			// Palettes
      'palettes' => [
-         'default' => '{museum_legend},name,info;{place_legend},street, street_nr, zip_code, place, country, museum_geox, museum_geoy;{contact_legend},email,website;{openings_legend},openings;{picture_legend},singleSRC;'
+         'default' => '{museum_legend},name;{place_legend},street, street_nr, zip_code, place, country, region, museum_geox, museum_geoy;{contact_legend},email,website;{openings_legend},openings;{picture_legend},singleSRC;'
     ]
 ];
 
