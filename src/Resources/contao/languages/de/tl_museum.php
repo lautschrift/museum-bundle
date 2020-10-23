@@ -3,9 +3,10 @@ $GLOBALS['TL_LANG']['tl_museum']['place_legend'] = 'Ortsangaben zum Museum';
 $GLOBALS['TL_LANG']['tl_museum']['contact_legend'] = 'Online – Kontaktmöglichkeiten';
 $GLOBALS['TL_LANG']['tl_museum']['openings_legend'] = 'Öffnungszeiten des Museums';
 $GLOBALS['TL_LANG']['tl_museum']['picture_legend'] = 'Bildeinstellungen';
+$GLOBALS['TL_LANG']['tl_museum']['speech_legend'] = 'Anzeigesprache';
 
 $GLOBALS['TL_LANG']['tl_museum']['name'] = ['Name', 'Name des Museums'];
-$GLOBALS['TL_LANG']['tl_museum']['info'] = ['Infos', 'Allgemeine Informatione nzum Museum'];
+$GLOBALS['TL_LANG']['tl_museum']['info'] = ['Infos', 'Allgemeine Informationen zum Museum'];
 $GLOBALS['TL_LANG']['tl_museum']['street'] = ['Straße', 'Straße des Museums'];
 $GLOBALS['TL_LANG']['tl_museum']['street_nr'] = ['Hausnummer', 'Hausnummer des Museums'];
 $GLOBALS['TL_LANG']['tl_museum']['zip_code'] = ['Postleitzahl', 'PLZ des Museums'];
@@ -18,6 +19,7 @@ $GLOBALS['TL_LANG']['tl_museum']['email'] = ['E-Mail', 'E-Mail-Adresse des Museu
 $GLOBALS['TL_LANG']['tl_museum']['website'] = ['Website', 'Website des Museums'];
 $GLOBALS['TL_LANG']['tl_museum']['openings'] = ['Öffnungszeiten', 'Öffnungszeiten des Museums'];
 $GLOBALS['TL_LANG']['tl_museum']['singleSRC'] = ['Museumsbild', 'Bild des Museums'];
+$GLOBALS['TL_LANG']['tl_museum']['speech'] = 'Anzeigesprache';
 
 $GLOBALS['TL_LANG']['tl_museum']['wert1'] = 'Deutschland';
 $GLOBALS['TL_LANG']['tl_museum']['wert2'] = 'Österreich';
