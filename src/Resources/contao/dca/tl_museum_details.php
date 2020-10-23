@@ -90,6 +90,9 @@ $GLOBALS['TL_DCA']['tl_museum_details'] = [
         						'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
         				],
             ],
+            'palettes' => [
+                'default' => '{speech_legend},speech;{museum_legend},info'
+            ],
 
     ];
 

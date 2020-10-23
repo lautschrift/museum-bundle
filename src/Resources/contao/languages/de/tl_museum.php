@@ -1,4 +1,4 @@
-$GLOBALS['TL_LANG']['tl_museum']['site_legend'] = 'Informationen zum Museum';
+$GLOBALS['TL_LANG']['tl_museum']['museum_legend'] = 'Informationen zum Museum';
 $GLOBALS['TL_LANG']['tl_museum']['place_legend'] = 'Ortsangaben zum Museum';
 $GLOBALS['TL_LANG']['tl_museum']['contact_legend'] = 'Online – Kontaktmöglichkeiten';
 $GLOBALS['TL_LANG']['tl_museum']['openings_legend'] = 'Öffnungszeiten des Museums';
