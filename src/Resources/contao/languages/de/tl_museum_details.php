@@ -1,7 +1,7 @@
 $GLOBALS['TL_LANG']['tl_museum_details']['museum_legend'] = 'Informationen zum Museum';
 $GLOBALS['TL_LANG']['tl_museum_details']['speech_legend'] = 'Anzeigesprache';
 
-$GLOBALS['TL_LANG']['tl_museum_details']['speech'] = 'Anzeigesprache';
+$GLOBALS['TL_LANG']['tl_museum_details']['speech'] = ['Anzeigesprache', 'Erfassungssprache des Eintrags'];
 $GLOBALS['TL_LANG']['tl_museum_details']['published'] = 'Veröffentlicht';
 
 $GLOBALS['TL_LANG']['tl_museum']['wert1'] = 'Deutschland';

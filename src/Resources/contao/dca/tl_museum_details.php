@@ -17,7 +17,7 @@ $GLOBALS['TL_DCA']['tl_museum_details'] = [
               'sorting' => [
                   'mode' => 3,
                   'flag' => 3,
-                  
+
                   'child_record_callback' => function (array $row) {
                       return '<div class="tl_content_left"><b>'.$row['speech'].'</b> ['.$row['number'].']</div>';
                   },
@@ -88,6 +88,14 @@ $GLOBALS['TL_DCA']['tl_museum_details'] = [
         						'inputType' => 'textarea',
         						'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
         				],
+                'published' => [
+                    'label'                   => &$GLOBALS['TL_LANG']['tl_museum_details']['published'],
+                    'exclude'                 => true,
+                    'default'                 => true,
+                    'inputType'               => 'checkbox',
+                    'eval'                    => array('tl_class'=>'clr'),
+                    'sql'                     => "char(1) NOT NULL default '1'"
+                ],
             ],
             'palettes' => [
                 'default' => '{speech_legend},speech;{museum_legend},info'
