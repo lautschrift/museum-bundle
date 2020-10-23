@@ -16,7 +16,6 @@ $GLOBALS['TL_DCA']['tl_museum_details'] = [
       'list' => [
               'sorting' => [
                   'mode' => 4,
-                  'fields' => ['speech'],
                   'panelLayout' => 'search,limit',
                   'child_record_callback' => function (array $row) {
                       return '<div class="tl_content_left"><b>'.$row['speech'].'</b> ['.$row['number'].']</div>';
