@@ -44,7 +44,7 @@ array_insert($GLOBALS['BE_MOD']['Site'],2, array
 (
         'palafittes_museum' => array
         (
-            'tables' => array ('tl_museum', 'tl_content'),
+            'tables' => array ('tl_museum', 'tl_museum_details', 'tl_content'),
         ),
 ));
 
