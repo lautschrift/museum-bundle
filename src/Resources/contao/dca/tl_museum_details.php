@@ -12,21 +12,11 @@ $GLOBALS['TL_DCA']['tl_museum_details'] = [
         ],
 
       ],
-      'onload_callback' => [
-            function (\Contao\DataContainer $dc) {
-                $db = \Contao\Database::getInstance();
-                $pid = \Contao\Input::get('pid');
-                $result = $db->prepare('SELECT `name` FROM `tl_museum` WHERE `id` = ?')
-                             ->execute([$pid]);
-                $name = $result->name; //strtoupper(substr($result->name, 0, 2));
-            },
-        ],
 
       'list' => [
               'sorting' => [
                   'mode' => 4,
-                  'flag' => 3,
-                  'headerFields' => [$name],
+                  'fields' => ['speech'],
                   'panelLayout' => 'search,limit',
                   'child_record_callback' => function (array $row) {
                       return '<div class="tl_content_left"><b>'.$row['speech'].'</b> ['.$row['number'].']</div>';
