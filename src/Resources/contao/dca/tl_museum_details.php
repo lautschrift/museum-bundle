@@ -59,7 +59,7 @@ $GLOBALS['TL_DCA']['tl_museum_details'] = [
                     'sql' => ['type' => 'integer', 'unsigned' => true, 'autoincrement' => true],
                 ],
                 'pid' => [
-                    'foreignKey' => 'tl_site.name',
+                    'foreignKey' => 'tl_museum.name',
                     'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
                     'relation' => ['type'=>'belongsTo', 'load'=>'lazy']
                 ],
@@ -88,7 +88,7 @@ $GLOBALS['TL_DCA']['tl_museum_details'] = [
         						'eval' => array('rte' => 'tinyMCE'),
         						'inputType' => 'textarea',
         						'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
-        				],  
+        				],
             ],
 
     ];
