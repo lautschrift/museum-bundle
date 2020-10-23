@@ -22,6 +22,11 @@ class MuseumContentElement extends AbstractContentElementController
 {
   protected function getResponse(Template $template, ContentModel $model, Request $request): ?Response
    {
+      $db = \Contao\Database::getInstance();
+      $resultDetails = $db->prepare('SELECT * FROM `tl_museum`')
+            ->execute();
+            
+     /*
        $template->text = $model->text;
        $template->museumContent = $model->info;
        $template->addImage = false;
@@ -38,7 +43,7 @@ class MuseumContentElement extends AbstractContentElementController
                Controller::addImageToTemplate($template, $model->row(), null, null, $objModel);
            }
        }
-
+*/
        return $template->getResponse();
    }
 }

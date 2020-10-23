@@ -11,6 +11,7 @@ $GLOBALS['TL_LANG']['tl_museum']['street_nr'] = ['Hausnummer', 'Hausnummer des M
 $GLOBALS['TL_LANG']['tl_museum']['zip_code'] = ['Postleitzahl', 'PLZ des Museums'];
 $GLOBALS['TL_LANG']['tl_museum']['place'] = ['Ort', 'Ort des Museums'];
 $GLOBALS['TL_LANG']['tl_museum']['country'] = ['Land', 'Land des Museums'];
+$GLOBALS['TL_LANG']['tl_museum']['region'] = ['Region', 'Region des Museums'];
 $GLOBALS['TL_LANG']['tl_museum']['museum_geox'] = ['Geokoordinate E', 'WGS84 E - Geokoordinate des Museums'];
 $GLOBALS['TL_LANG']['tl_museum']['museum_geoy'] = ['Geokoordinate N', 'WGS84 N - Geokoordinate des Museums'];
 $GLOBALS['TL_LANG']['tl_museum']['email'] = ['E-Mail', 'E-Mail-Adresse des Museums'];
