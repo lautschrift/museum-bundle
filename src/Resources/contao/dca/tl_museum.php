@@ -105,7 +105,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 				'country' => [
 					'label' => &$GLOBALS['TL_LANG']['tl_museum']['country'],
 					'eval' 		=> array('submitOnChange' => true, 'tl_class' => 'w50'),
-					'options' 	=> array('wert1','wert2','wert3','wert4','wert5','wert6'),
+					'options' 	=> array('DE','AT','CH','IT','SL','FR'),
 					'reference' => &$GLOBALS['TL_LANG']['tl_museum'],
 			    'inputType' => 'select',
 					'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
