@@ -10,3 +10,4 @@ services:
     _defaults:
         autoconfigure: true
     Lautschrift\MuseumBundle\Controller\ContentElement\MuseumContentElement: ~
+    Lautschrift\MuseumBundle\Controller\FrontEndModule\MuseumModuleController: ~
