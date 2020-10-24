@@ -22,14 +22,15 @@ class MuseumModuleController extends AbstractFrontendModuleController
   {
       global $objPage;
       $myID = \Contao\Input::get('id');
+      $country = \Contao\Input::get('country');
       $db = \Contao\Database::getInstance();
 
-      $result = $db->prepare('SELECT * FROM `tl_museum`')
+      $result = $db->prepare('SELECT * FROM `tl_museum` ')
         ->execute();
 
       $musees = $result->fetchAllAssoc();
       $template->musees = $musees;
-
+      $template->country = $country;
       return $template->getResponse();
 
   }
