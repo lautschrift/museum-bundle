@@ -144,13 +144,6 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 					'inputType' => 'text',
 					'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
 				],
-				'openings' => [
-						'label' => &$GLOBALS['TL_LANG']['tl_museum']['openings'],
-						'search' => true,
-						'inputType' => 'textarea',
-						'eval' => ['tl_class' => 'clr', 'rte' => 'tinyMCE', 'mandatory' => false],
-						'sql' => ['type' => 'text', 'notnull' => false]
-				],
 				'singleSRC' => [
             'label' => &$GLOBALS['TL_LANG']['tl_museum']['singleSRC'],
             'inputType' => 'fileTree',
@@ -167,7 +160,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 
 			// Palettes
      'palettes' => [
-         'default' => '{museum_legend},name;{place_legend},street, street_nr, zip_code, place, region, country, museum_geox, museum_geoy;{contact_legend},email,website;{openings_legend},openings;{picture_legend},singleSRC;'
+         'default' => '{museum_legend},name;{place_legend},street, street_nr, zip_code, place, region, country, museum_geox, museum_geoy;{contact_legend},email,website;{picture_legend},singleSRC;'
     ]
 ];
 

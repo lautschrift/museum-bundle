@@ -106,7 +106,7 @@ $GLOBALS['TL_DCA']['tl_museum_details'] = [
                 ],
             ],
             'palettes' => [
-                'default' => '{speech_legend},speech;{museum_legend},info'
+                'default' => '{speech_legend},speech;{museum_legend},info;{openings_legend},openings;'
             ],
 
     ];
