@@ -5,8 +5,7 @@ if (!defined('TL_ROOT')) die('You can not access this file directly!');
 /***
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['tl_museum']        =   '{title_legend},name;'.
-                                                                    '{test_legend},speech';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['tl_museum']        =   '{test_legend},speech';
 /***
  * Fields
  */
