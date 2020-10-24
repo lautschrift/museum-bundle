@@ -21,16 +21,18 @@ class MuseumModuleController extends AbstractFrontendModuleController
   protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
   {
       global $objPage;
-      $myID = \Contao\Input::get('id');
-      $country = \Contao\Input::get('country');
       $db = \Contao\Database::getInstance();
 
-      $result = $db->prepare('SELECT * FROM `tl_museum` ')
-        ->execute();
+      $result = $db->prepare('SELECT * FROM `tl_module` WHERE `id`= ?')
+        ->execute($template->id);
+      $myspeech = $result->museum_speech;
 
-      $musees = $result->fetchAllAssoc();
-      $template->musees = $musees;
-      $template->id = $id;
+      $musees = $db->prepare('SELECT * FROM `tl_museum` WHERE `country` LIKE ?')
+        ->execute($myspeech);
+
+      $locatedMusees = $musees->fetchAllAssoc();
+      $template->musees = $locatedMusees;
+      
       return $template->getResponse();
 
   }
