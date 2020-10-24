@@ -2,14 +2,11 @@
 
 if (!defined('TL_ROOT')) die('You can not access this file directly!');
 
-/***
- * Palettes
- */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['tl_museum']        =   '{test_legend},speech';
+
 /***
  * Fields
  */
-$GLOBALS['TL_DCA']['tl_module']['fields']['speech'] = array (
+$GLOBALS['TL_DCA']['tl_module']['fields']['museum_speech'] = array (
 
       'label' => &$GLOBALS['TL_LANG']['tl_site']['speech'],
       'inputType' => 'select',
@@ -19,3 +16,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['speech'] = array (
       'sql' => ['type' => 'string', 'length' => 3, 'default' => 0]
 
 );
+
+/***
+ * Palettes
+ */
+$GLOBALS['TL_DCA']['tl_module']['palettes']['museum']        =   '{test_legend},museum_speech';
