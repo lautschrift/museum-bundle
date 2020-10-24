@@ -27,7 +27,7 @@ class MuseumModuleController extends AbstractFrontendModuleController
       $result = $db->prepare('SELECT * FROM `tl_museum`')
         ->execute();
 
-      $musees = $result->fetachAllAssoc();
+      $musees = $result->fetchAllAssoc();
       $template->musees = $musees;
 
       return $template->getResponse();
