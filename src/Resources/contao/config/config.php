@@ -53,6 +53,9 @@ $GLOBALS['TL_CTE']['Museum'] = array(
 	'Museum2' => 'Lautschrift\\MuseumBundle\\Resources\\contao\\classes\\ContentMuseumElement'
 );
 
+
+$GLOBALS['FE_MOD']['Museum']['museum'] = 'Lautschrift\\MuseumBundle\\Resources\\contao\\modules\\ModuleMuseum';
+
 //$GLOBALS['TL_CTE']['Museum']['Museum'] = '\\lautschrift\\museum-bundle\\src\\Resources\\contao\\classes\\ContentMuseum';
 $GLOBALS['TL_LANG']['CTE']['Museum'] = array('Museum','Einbinden einer Museum-Karte über OpenLayers.');
 $GLOBALS['TL_LANG']['CTE']['Museum2'] = array('Museum (Element)','Einbinden eines Museum aus dem Palafittes Bereich');
