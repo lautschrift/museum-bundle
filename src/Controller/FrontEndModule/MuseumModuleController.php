@@ -30,7 +30,7 @@ class MuseumModuleController extends AbstractFrontendModuleController
 
       $musees = $result->fetchAllAssoc();
       $template->musees = $musees;
-      $template->country = $country;
+      $template->id = $id;
       return $template->getResponse();
 
   }
