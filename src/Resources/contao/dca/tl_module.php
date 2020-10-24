@@ -20,4 +20,5 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['museum_speech'] = array (
 /***
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['default']        =   '{test_legend},museum_speech';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['default']        =   '{title_legend},name'.
+                                                                  '{museumspeech_legend},museum_speech';
