@@ -104,7 +104,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 				],
 				'country' => [
 					'label' => &$GLOBALS['TL_LANG']['tl_museum']['country'],
-					'eval' 		=> array('submitOnChange' => true, 'tl_class' => 'clr'),
+					'eval' 		=> array('submitOnChange' => true, 'tl_class' => 'w50'),
 					'options' 	=> array('wert1','wert2','wert3','wert4','wert5','wert6'),
 					'reference' => &$GLOBALS['TL_LANG']['tl_museum'],
 			    'inputType' => 'select',
@@ -167,7 +167,7 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 
 			// Palettes
      'palettes' => [
-         'default' => '{museum_legend},name;{place_legend},street, street_nr, zip_code, place, country, region, museum_geox, museum_geoy;{contact_legend},email,website;{openings_legend},openings;{picture_legend},singleSRC;'
+         'default' => '{museum_legend},name;{place_legend},street, street_nr, zip_code, place, region, country, museum_geox, museum_geoy;{contact_legend},email,website;{openings_legend},openings;{picture_legend},singleSRC;'
     ]
 ];
 
