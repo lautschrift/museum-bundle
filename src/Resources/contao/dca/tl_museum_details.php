@@ -89,6 +89,13 @@ $GLOBALS['TL_DCA']['tl_museum_details'] = [
         						'inputType' => 'textarea',
         						'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
         				],
+                'openings' => [
+        						'label' => &$GLOBALS['TL_LANG']['tl_museum']['openings'],
+        						'search' => true,
+        						'inputType' => 'textarea',
+        						'eval' => ['tl_class' => 'clr', 'rte' => 'tinyMCE', 'mandatory' => false],
+        						'sql' => ['type' => 'text', 'notnull' => false]
+        				],
                 'published' => [
                     'label'                   => &$GLOBALS['TL_LANG']['tl_museum_details']['published'],
                     'exclude'                 => true,
