@@ -32,7 +32,7 @@ class MuseumModuleController extends AbstractFrontendModuleController
 
       $locatedMusees = $musees->fetchAllAssoc();
       $template->musees = $locatedMusees;
-      
+      $template->siteSpeech = $objPage->language
       return $template->getResponse();
 
   }
