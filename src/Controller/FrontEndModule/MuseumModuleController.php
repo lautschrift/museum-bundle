@@ -36,12 +36,13 @@ class MuseumModuleController extends AbstractFrontendModuleController
         if (array_key_exists($museum['region'], $regions)) {
            // exists
         } else {
-          $regions[$musem['region']];
+          $regions[$musem['region']] = [];
         }
-        $template->regions = $regions;
+
       }
       $template->museeums = $locatedMusees;
       $template->siteSpeech = $objPage->language;
+      $template->regions = $regions;
       return $template->getResponse();
 
   }
