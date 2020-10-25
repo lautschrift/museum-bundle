@@ -43,7 +43,7 @@ class MuseumModuleController extends AbstractFrontendModuleController
         $museumDetailsId = $museum['id'];
         $resultMuseumDetails = $db->prepare('SELECT * FROM `tl_museum_details` WHERE `pid`= ? AND `published`=1 AND `speech`= ?')
           ->execute($museumDetailsId, $objPage->language);
-        $museumDetails = $resultDetails->fetchAllAssoc();
+        $museumDetails = $resultMuseumDetails->fetchAllAssoc();
         $museumComplete[] = $museum;
         $museumComplete[] = $museumDetails;
         $regions[$museumRegion] = $museumComplete;
