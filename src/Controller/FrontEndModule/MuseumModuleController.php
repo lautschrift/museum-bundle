@@ -27,11 +27,20 @@ class MuseumModuleController extends AbstractFrontendModuleController
         ->execute($template->id);
       $myspeech = $result->museum_speech;
 
-      $musees = $db->prepare('SELECT * FROM `tl_museum` WHERE `country` LIKE ? AND `published`=1 ORDER BY `region`  ')
+      $museums = $db->prepare('SELECT * FROM `tl_museum` WHERE `country` LIKE ? AND `published`=1 ORDER BY `region`  ')
         ->execute($myspeech);
 
-      $locatedMusees = $musees->fetchAllAssoc();
-      $template->musees = $locatedMusees;
+      $locatedMusees = $museums->fetchAllAssoc();
+      $regions = array();
+      foreach ($museums as $museum) {
+        if (array_key_exists($museum['region'], $regions)) {
+           // exists
+        } else {
+          $regions[$musem['region']];
+        }
+        $template->regions = $regions;
+      }
+      $template->museeums = $locatedMusees;
       $template->siteSpeech = $objPage->language;
       return $template->getResponse();
 
