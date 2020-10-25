@@ -27,7 +27,7 @@ class MuseumModuleController extends AbstractFrontendModuleController
         ->execute($template->id);
       $myspeech = $result->museum_speech;
 
-      $musees = $db->prepare('SELECT * FROM `tl_museum` WHERE `country` LIKE ? ORDER BY `region` ')
+      $musees = $db->prepare('SELECT * FROM `tl_museum` WHERE `country` LIKE ? AND `published`=1 ORDER BY `region`  ')
         ->execute($myspeech);
 
       $locatedMusees = $musees->fetchAllAssoc();
