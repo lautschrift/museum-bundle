@@ -44,7 +44,7 @@ class MuseumModuleController extends AbstractFrontendModuleController
       $template->museeums = $locatedMusees;
       $template->siteSpeech = $objPage->language;
       $template->regions = $regions;
-      $template->test )= $test;
+      $template->test = $test;
       return $template->getResponse();
 
   }
