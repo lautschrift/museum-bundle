@@ -41,14 +41,21 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 							'href' => 'act=edit',
 							'icon' => 'header.svg',
 					],
-            'delete' => [
-                'href' => 'act=delete',
-                'icon' => 'delete.svg',
-            ],
-            'show' => [
-                'href' => 'act=show',
-                'icon' => 'show.svg'
-            ],
+          'delete' => [
+              'href' => 'act=delete',
+              'icon' => 'delete.svg',
+          ],
+					'toggle' => array
+					(
+							'label'               => &$GLOBALS['TL_LANG']['tl_museum_details']['toggle'],
+							'icon'                => '/system/themes/flexible/icons/visible.svg',
+							'attributes'          => 'onclick="Backend.getScrollOffset(); return AjaxRequest.toggleVisibility(this, %s);"',
+							'button_callback'     => array('tl_museum', 'toggleIcon')
+					),
+					'show' => [
+							'href' => 'act=show',
+							'icon' => 'show.svg'
+					],
         ],
     ],
 		// Fields
@@ -156,6 +163,14 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
             ],
             'sql' => ['type' => 'binary', 'length' => 16, 'notnull' => false, 'fixed' => true]
         ],
+				'published' => [
+						'label'                   => &$GLOBALS['TL_LANG']['tl_museum_details']['published'],
+						'exclude'                 => true,
+						'default'                 => true,
+						'inputType'               => 'checkbox',
+						'eval'                    => array('tl_class'=>'clr'),
+						'sql'                     => "char(1) NOT NULL default '1'"
+				],
 			],
 
 			// Palettes
@@ -187,32 +202,81 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 class tl_museum extends Backend
 {
 
-	public function __construct()
-  	{
-      $this->import('Contao\BackendUser', 'User');
-      parent::__construct();
-      $this->User->authenticate();
-  	}
-
 		/**
-			 * Throw an exception if the current content element is selected (circular reference)
-			 *
-			 * @param mixed         $varValue
-			 * @param DataContainer $dc
-			 *
-			 * @return mixed
-			 */
-			public function saveAlias($varValue, DataContainer $dc)
-			{
-				if ($dc->activeRecord && $dc->activeRecord->id == $varValue)
-				{
-					throw new \RuntimeException($GLOBALS['TL_LANG']['ERR']['circularPicker']);
-				}
+	     * Import BackendUser object
+	     */
+	    public function __construct()
+	    {
+	        parent::__construct();
 
-				return $varValue;
-			}
+	        $this->import('BackendUser', 'User');
+	    }
 
-		/**
+	    /**
+	     * Return the "toggle visibility" button
+	     */
+	    public function toggleIcon($row, $href, $label, $title, $icon, $attributes)
+	    {
+	        if (strlen($this->Input->get('tid'))) {
+	            $this->toggleVisibility($this->Input->get('tid'), ($this->Input->get('state') == 1));
+	            $this->redirect($this->getReferer());
+	        }
+
+	        // Check permissions AFTER checking the tid, so hacking attempts are logged
+	        if (!$this->User->isAdmin && !$this->User->hasAccess('tl_site::published', 'alexf')) {
+	            return '';
+	        }
+
+	        $href .= '&amp;tid='.$row['id'].'&amp;state='.($row['published'] ? '' : 1);
+
+	        if (!$row['published']) {
+	            $icon = '/system/themes/flexible/icons/invisible.svg';
+	        }
+
+	        return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
+	    }
+
+	    /**
+	     * Disable/enable an element
+	     * @param integer
+	     * @param boolean
+	     */
+	    public function toggleVisibility($intId, $blnVisible)
+	    {
+	        // Check permissions to publish
+	        if (!$this->User->isAdmin && !$this->User->hasAccess('tl_museum::published', 'alexf')) {
+
+	            //ToDo loggerService
+	            $this->log('Not enough permissions to publish/unpublish con4gis\MapsBundle\Resources\contao\classes\Utils ID "'.$intId.'"', 'tl_museum toggleVisibility', TL_ERROR);
+	            $this->redirect('contao/main.php?act=error');
+	        }
+	        $this->createInitialVersion('tl_museum', $intId);
+
+
+	        $objVersions = new Versions('tl_museum', $intId);
+	        $objVersions->initialize();
+
+	        // Trigger the save_callback
+	        if (is_array($GLOBALS['TL_DCA']['tl_museum']['fields']['published']['save_callback'])) {
+	            foreach ($GLOBALS['TL_DCA']['tl_museum']['fields']['published']['save_callback'] as $callback) {
+	                $str_class = $callback[0];
+	                $str_function = $callback[1];
+
+	                if ($str_class && $str_function) {
+	                    $this->import($str_class);
+	                    $blnVisible = $this->$str_class->$str_function($blnVisible, $this);
+	                }
+	            }
+	        }
+
+	        // Update the database
+	        $this->Database->prepare("UPDATE tl_museum SET tstamp=". time() .", published='" . ($blnVisible ? 1 : 0) . "'  WHERE id=?")
+	                       ->execute($intId);
+
+	        $this->createNewVersion('tl_museum', $intId);
+
+	    }
+				/**
 				* Validate Longitude
 				*/
 			 public function setLocLon($varValue, \DataContainer $dc)

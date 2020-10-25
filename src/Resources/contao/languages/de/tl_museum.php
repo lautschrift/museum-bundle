@@ -17,7 +17,7 @@ $GLOBALS['TL_LANG']['tl_museum']['museum_geox'] = ['Geokoordinate E', 'WGS84 E -
 $GLOBALS['TL_LANG']['tl_museum']['museum_geoy'] = ['Geokoordinate N', 'WGS84 N - Geokoordinate des Museums'];
 $GLOBALS['TL_LANG']['tl_museum']['email'] = ['E-Mail', 'E-Mail-Adresse des Museums'];
 $GLOBALS['TL_LANG']['tl_museum']['website'] = ['Website', 'Website des Museums'];
-
+$GLOBALS['TL_LANG']['tl_museum']['published'] = 'Veröffentlicht';
 $GLOBALS['TL_LANG']['tl_museum']['singleSRC'] = ['Museumsbild', 'Bild des Museums'];
 $GLOBALS['TL_LANG']['tl_museum']['speech'] = 'Anzeigesprache';
 
