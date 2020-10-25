@@ -33,18 +33,27 @@ class MuseumModuleController extends AbstractFrontendModuleController
       $locatedMuseums = $museums->fetchAllAssoc();
       $regions = array();
       foreach ($locatedMuseums as $museum) {
+        $museumComplete = array();
         $museumRegion = $museum['region'];
         if (array_key_exists($museumRegion, $regions)) {
            // exists
         } else {
           $regions[$museumRegion] = [];
         }
+        $museumDetailsId = $museum['id'];
+        $resultMuseumDetails = $db->prepare('SELECT * FROM `tl_museum_details` WHERE `pid`= ? AND `published`=1 AND `speech`= ?')
+          ->execute($museumDetailsId, $objPage->language);
+        $museumDetails = $resultDetails->fetchAllAssoc();
+        $museumComplete[] = $museum;
+        $museumComplete[] = $museumDetails;
+        $regions[$museumRegion] = $museumComplete;
 
       }
+
       $template->museeums = $locatedMuseums;
       $template->siteSpeech = $objPage->language;
       $template->regions = $regions;
-      
+
       return $template->getResponse();
 
   }
