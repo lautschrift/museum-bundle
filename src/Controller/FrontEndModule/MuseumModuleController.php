@@ -33,11 +33,11 @@ class MuseumModuleController extends AbstractFrontendModuleController
       $locatedMusees = $museums->fetchAllAssoc();
       $regions = array();
       foreach ($museums as $museum) {
-        $test .= $museum;
-        if (array_key_exists($museum['region'], $regions)) {
+        $test .= $museum[0]['region'];
+        if (array_key_exists($museum[0]['region'], $regions)) {
            // exists
         } else {
-          $regions[$musem['region']] = $musem['region'];
+          $regions[$musem[0]['region']] = $musem[0]['region'];
         }
 
       }
