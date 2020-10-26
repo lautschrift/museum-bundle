@@ -6,9 +6,12 @@ $GLOBALS['TL_LANG']['tl_museum_details']['speech'] = ['Anzeigesprache', 'Erfassu
 $GLOBALS['TL_LANG']['tl_museum_details']['published'] = 'Veröffentlicht';
 $GLOBALS['TL_LANG']['tl_museum_details']['openings'] = ['Öffnungszeiten', 'Öffnungszeiten des Museums'];
 
-$GLOBALS['TL_LANG']['tl_museum']['wert1'] = 'Deutschland';
-$GLOBALS['TL_LANG']['tl_museum']['wert2'] = 'Österreich';
-$GLOBALS['TL_LANG']['tl_museum']['wert3'] = 'Schweiz';
-$GLOBALS['TL_LANG']['tl_museum']['wert4'] = 'Italien';
-$GLOBALS['TL_LANG']['tl_museum']['wert5'] = 'Slowenien';
-$GLOBALS['TL_LANG']['tl_museum']['wert6'] = 'Frankreich';
+$GLOBALS['TL_LANG']['tl_museum']['DE'] = 'Deutschland';
+$GLOBALS['TL_LANG']['tl_museum']['AT'] = 'Österreich';
+$GLOBALS['TL_LANG']['tl_museum']['CH'] = 'Schweiz';
+$GLOBALS['TL_LANG']['tl_museum']['IT'] = 'Italien';
+$GLOBALS['TL_LANG']['tl_museum']['SL'] = 'Slowenien';
+$GLOBALS['TL_LANG']['tl_museum']['FR'] = 'Frankreich';
+
+
+$GLOBALS['TL_LANG']['tl_museum_details']['linktext'] = 'zur Website';
