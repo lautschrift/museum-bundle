@@ -5,7 +5,11 @@
 ?>
 
 <div class="museum_module">
-
+  <?php
+	 foreach ($this->regions as $key=>$val) {
+     $headline = "<h2><strong>".$key."</strong><h2>";
+   }
+	?>
 </div>
 
 <?php echo "<pre>".$this->showTemplateVars()."</pre>"; ?>
