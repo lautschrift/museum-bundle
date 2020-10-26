@@ -8,11 +8,11 @@ if (!defined('TL_ROOT')) die('You can not access this file directly!');
  */
 $GLOBALS['TL_DCA']['tl_module']['fields']['museum_speech'] = array (
 
-      'label' => &$GLOBALS['TL_LANG']['tl_site']['speech'],
+      'label' => &$GLOBALS['TL_LANG']['tl_museum']['speech'],
       'inputType' => 'select',
       'eval' 		=> array('submitOnChange' => true, 'tl_class' => 'clr', 'mandatory' => true),
       'options' 	=> ['DE', 'EN', 'FR', 'SLO', 'IT'],
-      'reference' => &$GLOBALS['TL_LANG']['site_details_speech'],
+      'reference' => &$GLOBALS['TL_LANG']['museum_details_speech'],
       'sql' => ['type' => 'string', 'length' => 3, 'default' => 0]
 
 );
