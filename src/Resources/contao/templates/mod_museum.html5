@@ -6,9 +6,23 @@
 
 <div class="museum_module">
   <?php
-	 foreach ($this->regions as $key=>$val) {
-     $headline = "<h2><strong>".$key."</strong><h2>";
-   }
+	$regions = array();
+	$museumContents = array();
+
+	foreach ($this->regions as $key=>$val) {
+     $region .= "<h2><strong>".$key."</strong></h2>";
+     foreach ($val as $museum) {
+       $museumContent  = "";
+       $museumContent .= "<h1>".$museum[0]['name']."</h1>";
+
+       $museumContents[] = $museumContent;
+     }
+     $regions[] = [$region, $museumContent];
+
+	}
+
+	echo $region;
+	//echo implode($museumContent);
 	?>
 </div>
 

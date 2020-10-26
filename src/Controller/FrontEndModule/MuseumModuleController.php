@@ -45,7 +45,7 @@ class MuseumModuleController extends AbstractFrontendModuleController
           ->execute($museumDetailsId, $objPage->language);
         $museumDetails = $resultMuseumDetails->fetchAllAssoc();
         $museumComplete[] = $museum;
-        $museumComplete[] = $museumDetails;
+        $museumComplete[] = $museumDetails[0];
         $regions[$museumRegion][] = $museumComplete;
 
       }
