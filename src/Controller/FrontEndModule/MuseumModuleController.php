@@ -50,7 +50,7 @@ class MuseumModuleController extends AbstractFrontendModuleController
 
       }
 
-      $template->museeums = $locatedMuseums;
+      //$template->museeums = $locatedMuseums;
       $template->siteSpeech = $objPage->language;
       $template->regions = $regions;
 
