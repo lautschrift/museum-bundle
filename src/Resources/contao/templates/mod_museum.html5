@@ -7,23 +7,67 @@
 <div class="museum_module">
   <?php
 	$regions = array();
-	$museumContents = array();
 
 	foreach ($this->regions as $key=>$val) {
-     $region .= "<h2><strong>".$key."</strong></h2>";
-     foreach ($val as $museum) {
-       $museumContent  = "";
-       $museumContent .= "<h1>".$museum[0]['name']."</h1>";
+     $region = "<div class='grid12'><h2><strong>".$key."</strong></h2></div>";
+     $museumContents = array();
+     foreach ($val as $museum) {
+    	//inits
+		$img = "";
+		$meta = "";
+     	$museumContent  = "";
 
-       $museumContents[] = $museumContent;
+     	//contents
+     	$museumContent .= "<div class='ce_Museum grid4'>";
+		$museumContent .= "<h1>".$museum[0]['name']."</h1>";
+		$img = \FilesModel::findByUuid($museum[0]['singleSRC'])->path;
+		$meta = deserialize(\FilesModel::findByUuid($museum[0]['singleSRC'])->meta);
+		$museumContent .=	"<figure class='image_container'>";
+		$museumContent .=	"<img src='". $img ."' title='".$meta[$lang]['title']."' alt='' itemprop='image' ". $inactiveClass .">";
+		$museumContent .=	"</figure>";
+		$museumContent .=	"<p>";
+		$museumContent .=	$museum[0]['street']." ";
+		$museumContent .=	$museum[0]['street_nr']." </br>";
+		$museumContent .=	$museum[0]['zip_code']." ";
+		$museumContent .=	$museum[0]['place']." ";
+		$museumContent .=	"</p>";
+		$museumContent .=	"<p></br></p>";
+		$museumContent .=	"<p>";
+		$museumContent .=	"<strong>".$GLOBALS['TL_LANG']['tl_museum_details']['openings'][0] ."</strong>";
+		$museumContent .=	$museum[1]['openings']." ";
+		$museumContent .=	"</p>";
+		$museumContent .=	"<p></br></p>";
+		$museumContent .=	"<p>";
+		$museumContent .=	"<hr>";
+		$museumContent .=	"<a title='".$GLOBALS['TL_LANG']['tl_museum_details']['linktext']."' href='".$museum[0]['website']."' target='blank' >";
+		$museumContent .=	"<span class='fa fa-external-link'> </span>";
+		$museumContent .=	" " .$GLOBALS['TL_LANG']['tl_museum_details']['linktext'];
+		$museumContent .=	"</a>";
+		$museumContent .=	"<hr>";
+		$museumContent .=	"</p>";
+		$museumContent .=	"<p></br></p>";
+		$museumContent .=	"<p>";
+		$museumContent .=	$museum[1]['info']." ";
+		$museumContent .=	"</p>";
+		$museumContent .=	"</div>";
+
+		$museumContents[] = $museumContent;
+
+
      }
-     $regions[] = [$region, $museumContent];
+     $regions[$region] = [$region, $museumContents];
 
 	}
 
-	echo $region;
-	//echo implode($museumContent);
+
+
+	foreach ($regions as $region) {
+		echo $region[0];
+		foreach ($region[1] as $museum) {
+			echo $museum;
+		}
+	}
 	?>
 </div>
-
-<?php echo "<pre>".$this->showTemplateVars()."</pre>"; ?>
+<div><?php //print_r ($regions); ?></div>
+<?php //echo "<div><pre>".$this->showTemplateVars()."</pre></div>"; ?>
