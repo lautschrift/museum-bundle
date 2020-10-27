@@ -83,14 +83,14 @@ $GLOBALS['TL_DCA']['tl_museum_details'] = [
                     'sql' => ['type' => 'string', 'length' => 3, 'default' => 0]
                 ],
                 'info' => [
-        						'label' => &$GLOBALS['TL_LANG']['tl_museum']['info'],
+        						'label' => &$GLOBALS['TL_LANG']['tl_museum_details']['info'],
         						'search' => true,
         						'eval' => array('rte' => 'tinyMCE'),
         						'inputType' => 'textarea',
-        						'sql' => ['type' => 'string', 'length' => 255, 'default' => '']
+        						'sql' => ['type' => 'text','notnull' => false]
         				],
                 'openings' => [
-        						'label' => &$GLOBALS['TL_LANG']['tl_museum']['openings'],
+        						'label' => &$GLOBALS['TL_LANG']['tl_museum_details']['openings'],
         						'search' => true,
         						'inputType' => 'textarea',
         						'eval' => ['tl_class' => 'clr', 'rte' => 'tinyMCE', 'mandatory' => false],
@@ -183,40 +183,7 @@ class tl_museum_details extends Backend
         // Update the database
         $this->Database->prepare("UPDATE tl_museum_details SET tstamp=". time() .", published='" . ($blnVisible ? 1 : 0) . "'  WHERE id=?")
                        ->execute($intId);
-      /*
-       $result = $this->Database->prepare("SELECT pid, CONCAT_WS(';',id,speech,published) AS detaillink FROM `tl_site_details` WHERE `id` = ?")
-                   ->execute([$intId]);
 
-       $link = $result->detaillink;
-       $link_parts = explode(";",$link);
-       $pid = $result->pid;
-       $locatedLink = $link_parts[0].';'.$link_parts[1].';'.$link_parts[2];
-
-       $getStoredIds = $this->Database->prepare('SELECT `details_link` FROM `tl_site` WHERE `id` = ?')
-                           -> execute([$pid]);
-
-       if($getStoredIds->details_link != '') {
-           $allIds = json_decode($getStoredIds->details_link, true);
-
-           foreach ($allIds as $key=>$val) {
-              $tmp = explode(";",$val);
-              $tmpId = $tmp[0];
-              // Id exists
-              if ($tmpId  == $intId || strpos($val ,"XXX")!==false) {
-                  unset($allIds[$key]);
-              }
-          }
-           //$actIds = json_encode($allIds);
-       }
-
-
-       if(!in_array($locatedLink, $allIds)) {
-           $allIds[] = $locatedLink;
-           $allIdsAsString = json_encode($allIds);
-           $setChildToParent = $this->Database->prepare('UPDATE `tl_site` SET `details_link` = ? WHERE `id` = ?')
-                                   ->execute([$allIdsAsString, $pid]);
-       }
-    */
         $this->createNewVersion('tl_museum_details', $intId);
 
     }
