@@ -14,4 +14,4 @@ $GLOBALS['TL_LANG']['tl_museum']['SL'] = 'Slowenien';
 $GLOBALS['TL_LANG']['tl_museum']['FR'] = 'Frankreich';
 
 
-$GLOBALS['TL_LANG']['tl_museum_details']['linktext'] = 'zur Website';
+$GLOBALS['TL_LANG']['tl_museum_details']['linktext'] = 'zur Website des Museums';
