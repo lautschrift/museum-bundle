@@ -9,7 +9,16 @@
 	$regions = array();
 
 	foreach ($this->regions as $key=>$val) {
-     $region = "<div class='grid12'><h2><strong>".$key."</strong></h2></div>";
+
+
+	 if($lang !== 'de') {
+	 	$locRegion = $GLOBALS['TL_LANG']['tl_museum_details'][$key];
+	 } else {
+	 	$locRegion = $key;
+	 }
+
+     $region = "<div class='grid12'><h2><strong>".$locRegion."</strong></h2></div>";
+
      $museumContents = array();
      foreach ($val as $museum) {
     	//inits
@@ -18,25 +27,16 @@
      	$museumContent  = "";
 
      	//contents
-     	$museumContent .= "<div class='ce_Museum grid4'>";
-		$museumContent .= "<h1>".$museum[0]['name']."</h1>";
+     	$museumContent .= "<div id='museum' class='ce_Museum grid4'>";
+		$museumContent .= "<h2>".$museum[0]['name']."</h2>";
 		$img = \FilesModel::findByUuid($museum[0]['singleSRC'])->path;
 		$meta = deserialize(\FilesModel::findByUuid($museum[0]['singleSRC'])->meta);
 		$museumContent .=	"<figure class='image_container'>";
 		$museumContent .=	"<img src='". $img ."' title='".$meta[$lang]['title']."' alt='' itemprop='image' ". $inactiveClass .">";
 		$museumContent .=	"</figure>";
 		$museumContent .=	"<p>";
-		$museumContent .=	$museum[0]['street']." ";
-		$museumContent .=	$museum[0]['street_nr']." </br>";
-		$museumContent .=	$museum[0]['zip_code']." ";
-		$museumContent .=	$museum[0]['place']." ";
+		$museumContent .=	$museum[1]['info']." ";
 		$museumContent .=	"</p>";
-		$museumContent .=	"<p></br></p>";
-		$museumContent .=	"<p>";
-		$museumContent .=	"<strong>".$GLOBALS['TL_LANG']['tl_museum_details']['openings'][0] ."</strong>";
-		$museumContent .=	$museum[1]['openings']." ";
-		$museumContent .=	"</p>";
-		$museumContent .=	"<p></br></p>";
 		$museumContent .=	"<p>";
 		$museumContent .=	"<hr>";
 		$museumContent .=	"<a title='".$GLOBALS['TL_LANG']['tl_museum_details']['linktext']."' href='".$museum[0]['website']."' target='blank' >";
@@ -45,12 +45,20 @@
 		$museumContent .=	"</a>";
 		$museumContent .=	"<hr>";
 		$museumContent .=	"</p>";
-		$museumContent .=	"<p></br></p>";
+		$museumContent .=	"<strong>".$museum[0]['name']."</strong>";
 		$museumContent .=	"<p>";
-		$museumContent .=	$museum[1]['info']." ";
+		$museumContent .=	$museum[0]['street']." ";
+		$museumContent .=	$museum[0]['street_nr']." </br>";
+		$museumContent .=	$museum[0]['zip_code']." ";
+		$museumContent .=	$museum[0]['place']." ";
 		$museumContent .=	"</p>";
-		$museumContent .=	"</div>";
+		$museumContent .=	"<strong>".$GLOBALS['TL_LANG']['tl_museum_details']['openings'][0] ."</strong>";
+		$museumContent .=	$museum[1]['openings']." ";
+		$museumContent .=	"<p></br></p>";
 
+
+		$museumContent .=	"</div>";
+		
 		$museumContents[] = $museumContent;
 
 

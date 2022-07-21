@@ -24,8 +24,8 @@ $GLOBALS['TL_DCA']['tl_museum'] = [
 	'list' => [
         'sorting' => [
             'mode' => 1,
-            'fields' => ['name'],
-            'flag' => 1,
+            'fields' => ['country'],
+            'flag' => 3,
             'panelLayout' => 'search,limit'
         ],
         'label' => [
